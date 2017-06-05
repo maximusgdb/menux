@@ -4,4 +4,6 @@ class Drink < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :size, presence: true
+
+  mount_uploader :picture, PhotoUploader
 end
