@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605094419) do
+ActiveRecord::Schema.define(version: 20170605115347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bars", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "description"
+    t.string "picture"
+    t.string "opening_hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.string "size"
+    t.bigint "category_id"
+    t.boolean "favorite"
+    t.string "picture"
+    t.bigint "bar_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_drinks_on_bar_id"
+    t.index ["category_id"], name: "index_drinks_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +63,6 @@ ActiveRecord::Schema.define(version: 20170605094419) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "drinks", "bars"
+  add_foreign_key "drinks", "categories"
 end
