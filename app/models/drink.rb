@@ -4,5 +4,4 @@ class Drink < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :size, presence: true
-  validates :picture, presence: true
 end
