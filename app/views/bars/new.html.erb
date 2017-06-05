@@ -1,0 +1,10 @@
+  <%= simple_form_for @bar do |f| %>
+  <%= f.input :name, :placeholder => "Name of your bar",:label => "Your bar name" %>
+  <%= f.input :address, :placeholder => "Enter the address" %>
+  <%= f.input :description, :label => "Write a short description (max. 60 chars.)" %>
+  <%= f.input :opening_hours %>
+
+  <%= f.input :picture %>
+  <%= f.input :picture_cache, as: :hidden %>
+  <%= f.submit %>
+  <% end %>
