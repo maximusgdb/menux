@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605124547) do
+ActiveRecord::Schema.define(version: 20170605152235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,26 @@ ActiveRecord::Schema.define(version: 20170605124547) do
     t.index ["category_id"], name: "index_drinks_on_category_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "client_id"
+    t.bigint "waiter_id"
+    t.bigint "table_id"
+    t.boolean "at_bar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["table_id"], name: "index_orders_on_table_id"
+    t.index ["waiter_id"], name: "index_orders_on_waiter_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.string "name"
+    t.bigint "bar_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_tables_on_bar_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,4 +85,6 @@ ActiveRecord::Schema.define(version: 20170605124547) do
 
   add_foreign_key "drinks", "bars"
   add_foreign_key "drinks", "categories"
+  add_foreign_key "orders", "tables"
+  add_foreign_key "tables", "bars"
 end
