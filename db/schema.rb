@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605115347) do
+ActiveRecord::Schema.define(version: 20170605124547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170605115347) do
     t.float "price"
     t.string "size"
     t.bigint "category_id"
-    t.boolean "favorite"
+    t.boolean "favorite", default: false
     t.string "picture"
     t.bigint "bar_id"
     t.datetime "created_at", null: false
