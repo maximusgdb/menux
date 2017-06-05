@@ -1,0 +1,11 @@
+ <%= simple_form_for [@bar, @drink] do |f| %>
+   <%= f.input :name, :placeholder => "Tequile Sunrise",:label => "Your new drink" %>
+   <%= f.input :description, :placeholder => "New drink available now!", :label => "Add a description for your customers" %>
+   <%= f.input :price, :label => "What's the price for this drink?" %>
+   <%= f.input :size, :label => "What's the content of this drink?" %>
+   <%= f.input :category, :label => "What kind of drink is this?" %>
+   <%= f.input :favorite, :label => "Do you want to add this to your favorite-list?" %>
+   <%= f.input :picture %>
+   <%= f.input :picture_cache, as: :hidden %>
+   <%= f.submit %>
+ <% end %>
