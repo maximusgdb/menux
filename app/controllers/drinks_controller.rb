@@ -2,7 +2,6 @@ class DrinksController < ApplicationController
   before_action :find_bar
 
   def index
-    @drinks = Drink.all
   end
 
   def new
