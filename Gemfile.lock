@@ -77,6 +77,8 @@ GEM
     erubi (1.6.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -106,6 +108,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.5)
       mime-types (>= 1.16, < 4)
+    material_icons (2.2.1)
+      railties (>= 3.2)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -234,11 +238,13 @@ DEPENDENCIES
   carrierwave (~> 0.11.2)
   cloudinary
   devise
+  faker
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
+  material_icons
   omniauth-facebook
   pg
   pry-byebug
