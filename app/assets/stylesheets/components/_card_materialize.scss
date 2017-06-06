@@ -1,0 +1,200 @@
+.cardmat-panel {
+  transition: box-shadow .25s;
+  padding: 24px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.cardmat {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.cardmat .cardmat-title {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.cardmat .cardmat-title.activator {
+  cursor: pointer;
+}
+
+.cardmat.small, .cardmat.medium, .cardmat.large {
+  position: relative;
+}
+
+.cardmat.small .cardmat-image, .cardmat.medium .cardmat-image, .cardmat.large .cardmat-image {
+  max-height: 60%;
+  overflow: hidden;
+}
+
+.cardmat.small .cardmat-image + .cardmat-content, .cardmat.medium .cardmat-image + .cardmat-content, .cardmat.large .cardmat-image + .cardmat-content {
+  max-height: 80%;
+}
+
+.cardmat.small .cardmat-content, .cardmat.medium .cardmat-content, .cardmat.large .cardmat-content {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.cardmat.small .cardmat-action, .cardmat.medium .cardmat-action, .cardmat.large .cardmat-action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.cardmat.small {
+  height: 300px;
+}
+
+.cardmat.medium {
+  height: 400px;
+}
+
+.cardmat.large {
+  height: 500px;
+}
+
+.cardmat
+ {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cardmat.horizontal.small .cardmat-image, .cardmat.horizontal.medium .cardmat-image, .cardmat.horizontal.large .cardmat-image {
+  height: 100%;
+  max-height: none;
+  overflow: visible;
+}
+
+.cardmat.horizontal.small .cardmat-image img, .cardmat.horizontal.medium .cardmat-image img, .cardmat.horizontal.large .cardmat-image img {
+  height: 100%;
+}
+
+.cardmat.horizontal .cardmat-image {
+  max-width: 50%;
+}
+
+.cardmat.horizontal .cardmat-image img {
+  border-radius: 2px 0 0 2px;
+  max-width: 100%;
+  width: auto;
+}
+
+.cardmat.horizontal .cardmat-stacked {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+
+.cardmat.horizontal .cardmat-stacked .cardmat-content {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.cardmat.sticky-action .cardmat-action {
+  z-index: 2;
+}
+
+.cardmat.sticky-action .cardmat-reveal {
+  z-index: 1;
+  padding-bottom: 64px;
+}
+
+.cardmat .cardmat-image {
+  position: relative;
+}
+
+.cardmat .cardmat-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.cardmat .cardmat-image .cardmat-title {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 24px;
+}
+
+.cardmat .cardmat-content {
+  padding: 5px;
+  border-radius: 0 0 2px 2px;
+}
+
+.cardmat .cardmat-content p {
+  margin: 0;
+  color: inherit;
+}
+
+.cardmat .cardmat-content .cardmat-title {
+  display: block;
+  line-height: 32px;
+  margin-bottom: 4px;
+}
+
+.cardmat .cardmat-content .cardmat-title i {
+  line-height: 12px;
+}
+
+.cardmat .cardmat-action {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 16px 24px;
+}
+
+.cardmat .cardmat-action:last-child {
+  border-radius: 0 0 2px 2px;
+}
+
+.cardmat .cardmat-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #ffab40;
+  margin-right: 24px;
+  transition: color .3s ease;
+  text-transform: uppercase;
+}
+
+.cardmat .cardmat-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+  color: #ffd8a6;
+}
+
+.cardmat .cardmat-reveal {
+  padding: 12px;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  overflow-y: auto;
+  left: 0;
+  top: 100%;
+  height: 100%;
+  z-index: 3;
+  display: none;
+}
+
+.cardmat .cardmat-reveal .cardmat-title {
+  cursor: pointer;
+  display: block;
+}
