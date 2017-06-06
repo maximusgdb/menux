@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <% @bar.drinks.group_by(&:category).each do |category, drinks| %>
+          <%= render 'category_dropdown', category: category, drinks: drinks %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

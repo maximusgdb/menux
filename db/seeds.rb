@@ -40,3 +40,15 @@ prices = [1.3, 2.7, 10, 3.3]
 10.times do
   beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: beers, bar: bar)
 end
+
+10.times do
+  wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price: prices.sample, size: sizes.sample, category: softs, bar: bar)
+end
+
+
+
+
+
+
+
+
