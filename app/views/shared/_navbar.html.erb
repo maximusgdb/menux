@@ -20,7 +20,11 @@
     <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
     <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
     <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+    <li class="c-menu__item">
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out c-menu__link"></i> <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+    </li>
   </ul>
 </nav>
 
