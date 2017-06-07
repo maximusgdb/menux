@@ -138,9 +138,9 @@ body.has-active-menu {
 .c-menu--push-left .c-menu__item,
 .c-menu--push-right .c-menu__item {
   display: block;
-  text-align: center;
-  border-top: solid 1px #b5dbe9;
-  border-bottom: solid 1px #bbdef0;
+  text-align: left;
+  border-top: solid 1px #4D4D4D;
+  border-bottom: solid 1px #4D4D4D;
 }
 
 .c-menu--slide-left .c-menu__item:first-child,
@@ -193,4 +193,11 @@ body.has-active-menu {
 .c-menu--slide-right.is-active,
 .c-menu--push-right.is-active {
   transform: translateX(0);
+}
+
+#logout {
+  position: absolute;
+  width: 100%;
+    display: inline-block;
+    bottom: 0;
 }
