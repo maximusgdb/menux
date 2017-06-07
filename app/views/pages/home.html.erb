@@ -1,3 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
+
+
+<% if !user_signed_in? %>
+<%= link_to new_user_session_path, class: "btn btn-primary btn-lg" do %>
+SIGN IN <i class="fa fa-sign-in" aria-hidden="true"></i>
+<% end %>
+<% else %>
+<%= link_to bars_path, class: "btn btn-primary btn-lg" do %>
+Bars <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+<% end %>
+<% end %>
