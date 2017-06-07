@@ -20,7 +20,7 @@
       <li class="c-menu__profile">
         <div>
           <%= link_to edit_user_registration_path, class: "c-menu__link c-menu__usercard" do %>
-              <%= image_tag ('icon-user-default.png'), size: "75" %>
+              <%= image_tag ('icon-user-default.png'), size: "65" %>
               <%= current_user.email %>
           <% end %>
         </div>
@@ -32,13 +32,13 @@
       <% end %>
     </li>
     <% if current_user.nil? %>
-      <li class="c-menu__item">
+      <li class="c-menu__item" id="logout">
         <%= link_to new_user_session_path, class: "c-menu__link" do %>
           <i class="fa fa-sign-in"></i> <%= t(".sign_in", default: "Sign in") %>
         <% end %>
       </li>
     <% else %>
-    <li class="c-menu__item">
+    <li class="c-menu__item" id="logout">
       <%= link_to destroy_user_session_path, method: :delete, class: "c-menu__link" do %>
         <i class="fa fa-sign-out"></i> <%= t(".sign_out", default: "Sign out") %>
       <% end %>
