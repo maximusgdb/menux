@@ -1,11 +1,11 @@
 
 <footer>
-<div class="btn btn-fluid">
+<div class="btn btn-fluid btn-primary">
     total: <%= @order.total_order %>
     quantity: <%= @order.number_of_items_per_order %>
   </div>
 
-  <div class="btn btn-fluid">
+  <div class="btn btn-fluid btn-primary"">
     <%= link_to "Order", bar_order_path(@bar, @order) %>
   </div>
 </div>
