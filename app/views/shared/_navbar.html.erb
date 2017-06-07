@@ -16,15 +16,34 @@
 <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
   <button class="c-menu__close">&larr; Close Menu</button>
   <ul class="c-menu__items">
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+    <% unless current_user.nil? %>
+      <li class="c-menu__profile">
+        <div>
+          <%= link_to edit_user_registration_path, class: "c-menu__link c-menu__usercard" do %>
+              <%= image_tag ('icon-user-default.png'), size: "75" %>
+              <%= current_user.email %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
     <li class="c-menu__item">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fa fa-sign-out c-menu__link"></i> <%= t(".sign_out", default: "Log out") %>
+      <%= link_to bars_path, class: "c-menu__link" do %>
+        <i class="fa fa-home" aria-hidden="true"></i> <%= t(".home", default: "Home") %>
       <% end %>
     </li>
+    <% if current_user.nil? %>
+      <li class="c-menu__item">
+        <%= link_to new_user_session_path, class: "c-menu__link" do %>
+          <i class="fa fa-sign-in"></i> <%= t(".sign_in", default: "Sign in") %>
+        <% end %>
+      </li>
+    <% else %>
+    <li class="c-menu__item">
+      <%= link_to destroy_user_session_path, method: :delete, class: "c-menu__link" do %>
+        <i class="fa fa-sign-out"></i> <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+    </li>
+    <% end %>
   </ul>
 </nav>
 
