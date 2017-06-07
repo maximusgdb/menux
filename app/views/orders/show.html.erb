@@ -1,0 +1,16 @@
+<h1 class="text-center">Order overview</h1>
+<div class="container">
+  <div class="row">
+
+    <% @order.order_lines.each do |line| %>
+    <div>
+      <p><%= line.drink.name %></p>
+      <p><%= line.drink.price %></p>
+      <p><%= line.drink.size %></p>
+      <p><%= line.quantity %></p>
+    </div>
+    <% end %>
+
+    </div>
+  </div>
+
