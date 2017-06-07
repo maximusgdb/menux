@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # has_many :waiter_orders, :class_name => 'Order', :foreign_key => 'waiter_id'
   has_many :orders
 
+
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email
