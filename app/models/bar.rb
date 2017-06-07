@@ -1,5 +1,7 @@
 class Bar < ApplicationRecord
   has_many :drinks, dependent: :destroy
+  has_many :categories, through: :drinks
+  has_many :orders, dependent: :destroy
   validates :name, presence: true
   validates :address, presence: true
   validates :opening_hours, presence: true

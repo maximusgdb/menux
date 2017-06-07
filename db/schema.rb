@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606094622) do
+ActiveRecord::Schema.define(version: 20170607085209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170606094622) do
     t.string "opening_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number_of_tables"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -46,24 +47,26 @@ ActiveRecord::Schema.define(version: 20170606094622) do
     t.index ["category_id"], name: "index_drinks_on_category_id"
   end
 
+  create_table "order_lines", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "drink_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_order_lines_on_drink_id"
+    t.index ["order_id"], name: "index_order_lines_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "client_id"
     t.bigint "waiter_id"
-    t.bigint "table_id"
-    t.boolean "at_bar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_orders_on_client_id"
-    t.index ["table_id"], name: "index_orders_on_table_id"
-    t.index ["waiter_id"], name: "index_orders_on_waiter_id"
-  end
-
-  create_table "tables", force: :cascade do |t|
-    t.string "name"
     t.bigint "bar_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bar_id"], name: "index_tables_on_bar_id"
+    t.integer "table_number"
+    t.index ["bar_id"], name: "index_orders_on_bar_id"
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["waiter_id"], name: "index_orders_on_waiter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170606094622) do
 
   add_foreign_key "drinks", "bars"
   add_foreign_key "drinks", "categories"
-  add_foreign_key "orders", "tables"
-  add_foreign_key "tables", "bars"
+  add_foreign_key "order_lines", "drinks"
+  add_foreign_key "order_lines", "orders"
+  add_foreign_key "orders", "bars"
 end
