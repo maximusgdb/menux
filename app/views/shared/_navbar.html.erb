@@ -14,7 +14,7 @@
 </div>
 
 <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
-  <button class="c-menu__close">&larr; Close Menu</button>
+  <button class="c-menu__close">&larr; Back</button>
   <ul class="c-menu__items">
     <% unless current_user.nil? %>
       <li class="c-menu__profile">
@@ -40,7 +40,7 @@
     <% else %>
     <li class="c-menu__item">
       <%= link_to destroy_user_session_path, method: :delete, class: "c-menu__link" do %>
-        <i class="fa fa-sign-out"></i> <%= t(".sign_out", default: "Log out") %>
+        <i class="fa fa-sign-out"></i> <%= t(".sign_out", default: "Sign out") %>
       <% end %>
     </li>
     <% end %>

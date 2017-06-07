@@ -39,6 +39,7 @@
   position: fixed;
   z-index: 200;
   background-color: #353736;
+  opacity:0.8;
   transition: transform 0.3s;
   border-radius: 4px 0 0 4px;
 }
@@ -64,7 +65,8 @@
  */
 .c-menu__close {
   color: white;
-  background-color: #efca08;
+  background-color: #353736;
+  opacity: 1;
   font-size: 14px;
   border: none;
   box-shadow: none;
