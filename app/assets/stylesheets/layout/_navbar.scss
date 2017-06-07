@@ -1,6 +1,7 @@
 .navbar-menux {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #00a6a6;
+  background-color: #293133;
+  color: white;
   transition: all 0.3s ease;
   display: flex;
   height: 60px;
@@ -37,7 +38,8 @@
 .c-menu {
   position: fixed;
   z-index: 200;
-  background-color: #f08700;
+  background-color: #353736;
+  opacity:0.8;
   transition: transform 0.3s;
   border-radius: 4px 0 0 4px;
 }
@@ -48,12 +50,23 @@
   padding: 0;
 }
 
+.c-menu__profile {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c-menu__usercard {
+  display: flex;
+}
+
 /**
  * Close button resets.
  */
 .c-menu__close {
-  color: black;
-  background-color: #efca08;
+  color: white;
+  background-color: #353736;
+  opacity: 1;
   font-size: 14px;
   border: none;
   box-shadow: none;
@@ -125,9 +138,9 @@ body.has-active-menu {
 .c-menu--push-left .c-menu__item,
 .c-menu--push-right .c-menu__item {
   display: block;
-  text-align: center;
-  border-top: solid 1px #b5dbe9;
-  border-bottom: solid 1px #bbdef0;
+  text-align: left;
+  border-top: solid 1px #4D4D4D;
+  border-bottom: solid 1px #4D4D4D;
 }
 
 .c-menu--slide-left .c-menu__item:first-child,
@@ -150,7 +163,8 @@ body.has-active-menu {
 .c-menu--push-right .c-menu__link {
   display: block;
   padding: 12px 16px;
-  color: black;
+  color: white;
+  text-decoration: none;
 }
 
 .c-menu--slide-left .c-menu__close,
@@ -179,4 +193,11 @@ body.has-active-menu {
 .c-menu--slide-right.is-active,
 .c-menu--push-right.is-active {
   transform: translateX(0);
+}
+
+#logout {
+  position: absolute;
+  width: 100%;
+    display: inline-block;
+    bottom: 0;
 }
