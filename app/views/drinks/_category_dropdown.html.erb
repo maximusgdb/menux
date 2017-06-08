@@ -9,13 +9,13 @@
 
     </a>
   </div>
-  <div id="collapse-<%= category.name %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  <div id="collapse-<%= category.name %>" class="panel-collapse collapse<%= ' in' if first %>" role="tabpanel" aria-labelledby="headingTwo">
     <div class="panel-body">
-      <% drinks.each do |drink| %>
-      <ul>
-        <%= render "drink_list_dropdown", drink: drink %>
-      </ul>
-      <% end %>
+      <table class="table table-striped">
+        <% drinks.each do |drink| %>
+          <%= render "drink_list_dropdown", drink: drink %>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

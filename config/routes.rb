@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :bars do
     resources :drinks
-
-    resources :orders, only: [:index, :create, :update, :destroy, :show]
-
+    resources :orders, only: [:index, :create, :update, :destroy, :show] do
+      resources :order_lines, only: [:create]
+    end
+  end
     namespace :waiter do
       resources :orders, only: [ :index, :show]
     end
   end
-
-
 end

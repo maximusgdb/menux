@@ -10,6 +10,11 @@
   padding-bottom: 5em;
 }
 
+.marged {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -28,4 +33,12 @@
 
 body {
     padding-top: 60px;
+}
+
+.link-no-decoration{
+  text-decoration: none;
+}
+
+.link-no-decoration:hover{
+    text-decoration: none;
 }

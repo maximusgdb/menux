@@ -2,23 +2,9 @@ class DrinksController < ApplicationController
   before_action :find_bar
 
   def index
-
-    # checks if the order is already in the cookies
-    # if cookies[:order]
-    #   # if in cookies -> find it
-    #   @order = Order.find(cookies[:order][:id])
-    # else
-    #   # if not in cookies then create one and save it in cookies
-
-    #   # @order = Order.create(bar: @bar)
-
-    #   cookies[:order] = { id: @order.id }
-    # end
     if current_user.current_order.nil?
       @order = current_user.orders.create!(bar_id: @bar)
-      puts "hello"
     else
-      puts "already order"
       @order = current_user.current_order
     end
   end
