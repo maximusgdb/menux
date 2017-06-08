@@ -1,0 +1,12 @@
+
+<div class="footer-button">
+  <div class="btn-overview">
+  <div>total:<%= @order.total_order %></div>
+    <div><%= @order.number_of_items_per_order %></div>
+  </div>
+
+  <div class="btn-order"">
+    <%= link_to "Order", bar_order_path(@bar, @order) %>
+  </div>
+</div>
+

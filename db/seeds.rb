@@ -10,6 +10,8 @@
 Bar.destroy_all
 Category.destroy_all
 Drink.destroy_all
+User.destroy_all
+
 
 # inserting bars
 bar = Bar.create(name: "Celtica",
@@ -46,9 +48,8 @@ end
 end
 
 
-
-
-
-
+2.times do
+  User.create(email: Faker::Internet.email, password: "aaaaaaaaa", name: Faker::Name.name )
+end
 
 
