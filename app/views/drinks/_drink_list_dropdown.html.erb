@@ -1,1 +1,6 @@
-  <%= drink.name %>
+<tr>
+  <td><%= drink.name %></td>
+  <td><%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: drink.id), method: :post do %>
+      <i class="material-icons pull-right">add_box</i>
+    <% end %></td>
+</tr>

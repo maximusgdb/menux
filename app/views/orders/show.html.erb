@@ -1,15 +1,40 @@
-<h1 class="text-center">Order overview</h1>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <div class="page-header">
+        <h1 class="text-center">Order overview <small><%= @bar.name %></small></h1>
+      </div>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Drink name</th>
+            <th>Remove</th>
+            <th>Quantity</th>
+            <th>Add</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_lines.each do |line| %>
+          <tr>
+            <td><%= line.drink.name %></td>
+            <td><%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: line.drink.id, remove: true, order: "order"), method: :post do %>
+              <i class="material-icons">keyboard_arrow_down</i>
+              <% end %></td>
+            <td><%= line.quantity %></td>
+            <td><%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: line.drink.id, order: "order"), method: :post do %>
+              <i class="material-icons">keyboard_arrow_up</i>
+              <% end %></td>
+          </tr>
+          <% end %>
+          <tr class="danger">
+            <td>TOTAL: <%= @order.total_order %> €</td>
 
-    <% @order.order_lines.each do |line| %>
-    <div>
-      <p><%= line.drink.name %></p>
-      <p><%= line.drink.price %></p>
-      <p><%= line.drink.size %></p>
-      <p><%= line.quantity %></p>
-    </div>
-    <% end %>
-
+            <td></td>
+            <td><%= pluralize(@order.number_of_items_per_order, "Item") %></td>
+            <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>

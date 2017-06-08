@@ -1,12 +1,15 @@
-
-<div class="footer-button">
-  <div class="btn-overview">
-  <div>total:<%= @order.total_order %></div>
-    <div><%= @order.number_of_items_per_order %></div>
-  </div>
-
-  <div class="btn-order"">
-    <%= link_to "Order", bar_order_path(@bar, @order) %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <%= link_to bar_order_path(@bar, @order), class: "link-no-decoration" do %>
+        <button class="btn btn-default btn-block btn-lg btn-success marged">
+            <i class="material-icons pull-left">shopping_cart</i>
+            <%= pluralize(@order.number_of_items_per_order, "Drink") %>
+            -
+            <%= @order.total_order %> €
+          <i class="material-icons pull-right">navigate_next</i>
+        </button>
+      <% end %>
+    </div>
   </div>
 </div>
-
