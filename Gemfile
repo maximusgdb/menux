@@ -21,6 +21,10 @@ gem 'carrierwave', '~> 0.11.2'
 gem 'material_icons'
 gem 'omniauth-facebook'
 gem 'faker'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
+
 
 group :development, :test do
   gem 'binding_of_caller'

@@ -22,5 +22,6 @@ class User < ApplicationRecord
     # uncomment the line below to skip the confirmation emails.
     # user.skip_confirmation!
   end
-end
+  end
+
 end
