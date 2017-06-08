@@ -1,0 +1,19 @@
+<h1 class="text-center">Orders overview</h1>
+<div class="container">
+  <div class="row">
+<% @orders.each do |order| %>
+    <div>
+
+      <p>Table: <%= order.table_number %></p>
+         <% order.order_lines.each do |line| %>
+            <div>
+              <p><%= line.drink.name %></p>
+              <p><%= line.drink.size %></p>
+              <p><%= line.quantity %></p>
+            </div>
+          <% end %>
+    </div>
+<% end %>
+
+    </div>
+  </div>
