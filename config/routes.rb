@@ -7,5 +7,11 @@ Rails.application.routes.draw do
     resources :drinks
 
     resources :orders, only: [:index, :create, :update, :destroy, :show]
-      end
+
+    namespace :waiter do
+      resources :orders, only: [ :index, :show]
+    end
+  end
+
+
 end
