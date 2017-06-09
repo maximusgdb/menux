@@ -25,7 +25,8 @@ bar = Bar.create(name: "Celtica",
     jeudi 13:00–06:00
     vendredi  13:00–07:00
     samedi  13:00–07:00
-    dimanche  13:00–05:00"
+    dimanche  13:00–05:00",
+    number_of_tables: 10
   )
 
 big_games = Bar.create(name: "The Big Games",
@@ -38,8 +39,9 @@ big_games = Bar.create(name: "The Big Games",
     lundi 12:00–05:00
     mardi 12:00–05:00
     mercredi  12:00–05:00
-    jeudi 12:00–05:00
-  ")
+    jeudi 12:00–05:00",
+    number_of_tables: 0
+  )
 
 # inserting categories
 softs = Category.create(name: "soft")
