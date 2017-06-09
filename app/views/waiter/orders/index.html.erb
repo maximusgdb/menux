@@ -1,19 +1,30 @@
 <h1 class="text-center">Orders overview</h1>
-<div class="container">
+
+<div class="container-fluid">
+  <% @orders.each do |order| %>
   <div class="row">
-<% @orders.each do |order| %>
-    <div>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration" do %>
+      <button class="btn btn-default btn-block btn-lg marged active" >
 
-      <p>Table: <%= order.table_number %></p>
-         <% order.order_lines.each do |line| %>
-            <div>
-              <p><%= line.drink.name %></p>
-              <p><%= line.drink.size %></p>
-              <p><%= line.quantity %></p>
-            </div>
-          <% end %>
-    </div>
-<% end %>
+        <% if (order.table_number.present?) then%>
+          <p class="pull-left">Table: <%= order.table_number %></p>
+        <% else %>
+          <p class="pull-left">At the bar</p>
+        <% end %>
 
-    </div>
+        <%= pluralize(order.number_of_items_per_order, "Drink") %>
+        <% end %>
+
+        <label class="checkbox-inline pull-right"><input type="checkbox" class="big-checkbox" value=""></label>
+      </div>
   </div>
+    <% end %>
+</div>
+
+<script>
+
+
+</script>
+
+

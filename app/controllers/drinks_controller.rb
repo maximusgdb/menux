@@ -2,9 +2,9 @@ class DrinksController < ApplicationController
   before_action :find_bar
 
   def index
-    @drinks = policy_scope(Drink).where(bar: @bar)
+    @drinks = policy_scope(Drink).where(bar_id: @bar)
     if current_user.current_order.nil?
-      @order = current_user.orders.create!(bar: @bar)
+      @order = current_user.orders.create!(bar_id: @bar)
     else
       @order = current_user.current_order
     end
