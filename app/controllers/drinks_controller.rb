@@ -3,10 +3,12 @@ class DrinksController < ApplicationController
 
   def index
     @drinks = policy_scope(Drink).where(bar: @bar)
-    if current_user.current_order.nil?
+    @current_order = current_user.current_orders.find_by(bar: @bar)
+
+    if @current_order.nil?
       @order = current_user.orders.create!(bar: @bar)
     else
-      @order = current_user.current_order
+      @order = @current_order
     end
   end
 

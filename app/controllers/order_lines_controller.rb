@@ -36,6 +36,6 @@ class OrderLinesController < ApplicationController
   end
 
   def find_order
-    @order = current_user.current_order
+    @order = Order.find(params[:order_id])
   end
 end

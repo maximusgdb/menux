@@ -8,8 +8,8 @@ class User < ApplicationRecord
   # has_many :waiter_orders, :class_name => 'Order', :foreign_key => 'waiter_id'
   has_many :orders, foreign_key: "client_id"
 
-  def current_order
-    orders.find(confirmed: false)
+  def current_orders
+    orders.where(confirmed: false)
   end
 
   def self.from_omniauth(auth)
