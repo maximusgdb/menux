@@ -2,7 +2,7 @@ class OrderLinePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
 
-      if user.admin? || user.server?
+      if user.admin? || user.waiter?
         scope.all
       else
         false
