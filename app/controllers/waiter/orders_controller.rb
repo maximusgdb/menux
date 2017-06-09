@@ -10,7 +10,15 @@ class Waiter::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     authorize @order
+
+
   end
+
+def update
+  @order = Order.find(params[:id])
+  authorize @order
+  redirect_to bar_waiter_orders_path(@bar, @order)
+end
 
   private
 
