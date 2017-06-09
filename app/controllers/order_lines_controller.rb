@@ -4,6 +4,7 @@ class OrderLinesController < ApplicationController
 
   def create
     drink = Drink.find(params[:drink_id])
+    authorize drink
     existing_line = @order.order_lines.find_by(drink: drink)
     if existing_line
       if params[:remove]

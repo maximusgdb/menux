@@ -2,8 +2,9 @@ class DrinksController < ApplicationController
   before_action :find_bar
 
   def index
+    @drinks = policy_scope(Drink).where(bar: @bar)
     if current_user.current_order.nil?
-      @order = current_user.orders.create!(bar_id: @bar)
+      @order = current_user.orders.create!(bar: @bar)
     else
       @order = current_user.current_order
     end
@@ -15,6 +16,7 @@ class DrinksController < ApplicationController
 
   def create
     @drink = Drink.new(drink_params)
+    authorize @drink
     @drink.bar = @bar
     if @drink.save
       redirect_to bar_drink_path(@bar, @drink)
@@ -25,14 +27,17 @@ class DrinksController < ApplicationController
 
   def show
     @drink = Drink.find(params[:id])
+    authorize @drink
   end
 
   def edit
     @drink = Drink.find(params[:id])
+
   end
 
   def update
     @drink = Drink.find(params[:id])
+    authorize @drink
     if @drink.update(drink_params)
       flash[:notice] = "Updated"
       redirect_to bar_drink_path(@bar, @drink)
@@ -44,6 +49,7 @@ class DrinksController < ApplicationController
   def destroy
     @drink = Drink.find(params[:id])
     @drink.destroy
+    authorize @drink
     redirect_to bar_drink_path(@bar)
   end
 
