@@ -8,6 +8,7 @@
 
 # suppressing all the previous seeds
 Bar.destroy_all
+Order.destroy_all
 Category.destroy_all
 Drink.destroy_all
 User.destroy_all
@@ -26,6 +27,19 @@ bar = Bar.create(name: "Celtica",
     samedi  13:00–07:00
     dimanche  13:00–05:00"
   )
+
+big_games = Bar.create(name: "The Big Games",
+  address: "Rue Henri Maus 5, 1000 Bruxelles",
+  description: "Brusseleirs bar",
+  opening_hours: "
+    vendredi  12:00–07:00
+    samedi  12:00–07:00
+    dimanche  12:00–05:00
+    lundi 12:00–05:00
+    mardi 12:00–05:00
+    mercredi  12:00–05:00
+    jeudi 12:00–05:00
+  ")
 
 # inserting categories
 softs = Category.create(name: "soft")
@@ -47,6 +61,13 @@ end
   wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price: prices.sample, size: sizes.sample, category: softs, bar: bar)
 end
 
+10.times do
+  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: categories.sample, bar: big_games)
+end
+
+10.times do
+  wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price: prices.sample, size: sizes.sample, category: categories.sample, bar: big_games)
+end
 
 2.times do
   User.create(email: Faker::Internet.email, password: "aaaaaaaaa", name: Faker::Name.name )

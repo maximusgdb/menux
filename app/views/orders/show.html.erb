@@ -41,13 +41,15 @@
       <%= simple_form_for [@bar, @order] do |f| %>
 
       <div class="button-delivery">
-        <span>Choose delivery: </span>
-
-          <%= f.select :table_number, options_for_select(@bar.number_of_tables.times.to_a.map(&:succ)), {prompt: "Choose a table or pick at the bar"}%>
-        <%= f.submit %>
+        <div>Choose delivery: </div>
+        <div>
+          <%= f.select :table_number, options_for_select(@bar.number_of_tables.times.to_a.map(&:succ)), {prompt: "Pick at the bar or..."}, class: "dropdown" %>
+        </div>
       </div>
-
-      <% end %>
     </div>
   </div>
 </div>
+<div>
+  <%= f.submit "Pay your order!", class: "form-control button-to-pay" %>
+</div>
+<% end %>
