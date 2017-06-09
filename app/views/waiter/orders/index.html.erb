@@ -2,28 +2,28 @@
 
 <div class="container-fluid">
   <% @orders.each do |order| %>
-  <% if order.confirmed = false %>
+
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
       <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration" do %>
       <button class="btn btn-default btn-block btn-lg marged active" >
 
         <% if (order.table_number.present?) then%>
-          <p class="pull-left">Table: <%= order.table_number %></p>
+        <p class="pull-left">Table: <%= order.table_number %></p>
         <% else %>
-          <p class="pull-left">At the bar</p>
+        <p class="pull-left">At the bar</p>
         <% end %>
 
         <%= pluralize(order.number_of_items_per_order, "Drink") %>
 
         <label class="checkbox-inline pull-right"><input type="checkbox" class="big-checkbox" value=""></label>
         <% end %>
-        <% end %>
+
 
 
       </div>
-  </div>
+    </div>
     <% end %>
-</div>
+  </div>
 
 
