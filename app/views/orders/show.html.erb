@@ -19,11 +19,13 @@
             <td><%= line.drink.name %></td>
             <td><%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: line.drink.id, remove: true, order: "order"), method: :post do %>
               <i class="material-icons">keyboard_arrow_down</i>
-              <% end %></td>
+              <% end %>
+            </td>
             <td><%= line.quantity %></td>
             <td><%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: line.drink.id, order: "order"), method: :post do %>
               <i class="material-icons">keyboard_arrow_up</i>
-              <% end %></td>
+              <% end %>
+            </td>
           </tr>
           <% end %>
           <tr class="danger">
@@ -32,9 +34,17 @@
             <td></td>
             <td><%= pluralize(@order.number_of_items_per_order, "Item") %></td>
             <td></td>
-            </tr>
-          </tbody>
-        </table>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="button-delivery">
+        <span>Choose delivery: </span>
+        <%= simple_form_for [@bar, @order] do |f| %>
+          <%= f.select :table_number, options_for_select(@bar.number_of_tables.times.to_a.map(&:succ)), {prompt: "Choose a table or pick at the bar"}%>
+        <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
