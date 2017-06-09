@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <%= link_to bar_waiter_order_path(@bar, @order), method: :put, confirmed: :true,  class: "link-no-decoration" do %>
+        <button class="btn btn-default btn-block btn-lg btn-success marged" id="btn-done">
+
+          <p class="text-center bold" >Done</p>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

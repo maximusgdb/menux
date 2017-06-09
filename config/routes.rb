@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :order_lines, only: [:create]
     end
     namespace :waiter do
-      resources :orders, only: [ :index, :show]
+      resources :orders, only: [ :index, :show, :update]
     end
   end
 end
