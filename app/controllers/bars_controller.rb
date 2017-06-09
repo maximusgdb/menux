@@ -2,7 +2,7 @@ class BarsController < ApplicationController
   before_action :find_bar, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @bars = Bar.all
+    @bars = policy_scope(Bar)
   end
 
   def new
@@ -11,6 +11,7 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
+    authorize @bar
     if @bar.save
       redirect_to bar_path(@bar)
     else
@@ -29,6 +30,7 @@ class BarsController < ApplicationController
   def update
     #find
     if @bar.update(bar_params)
+      authorize @bar
       flash[:notice] = "Updated"
       redirect_to bar_path(@bar)
     else
@@ -39,6 +41,7 @@ class BarsController < ApplicationController
   def destroy
     #find
     @bar.destroy
+    authorize @bar
     redirect_to bars_path
   end
 
