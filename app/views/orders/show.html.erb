@@ -38,13 +38,16 @@
         </tbody>
       </table>
 
+      <%= simple_form_for [@bar, @order] do |f| %>
+
       <div class="button-delivery">
         <span>Choose delivery: </span>
-        <%= simple_form_for [@bar, @order] do |f| %>
+
           <%= f.select :table_number, options_for_select(@bar.number_of_tables.times.to_a.map(&:succ)), {prompt: "Choose a table or pick at the bar"}%>
         <%= f.submit %>
-        <% end %>
       </div>
+
+      <% end %>
     </div>
   </div>
 </div>
