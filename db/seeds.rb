@@ -8,6 +8,7 @@
 
 # suppressing all the previous seeds
 Bar.destroy_all
+Order.destroy_all
 Category.destroy_all
 Drink.destroy_all
 User.destroy_all
