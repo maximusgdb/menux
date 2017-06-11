@@ -1,7 +1,26 @@
+<div class="container">
+  <div class="row">
+    <%# @bars.each do |bar| %>
+    <% 5.times do %>
+    <div class="col-xs-12 col-sm-6 col-md-4 bar-card">
+      <div class="row">
+        <div class="col-xs-2 col-sm-12 bg-blue bar-photo">
+        </div>
+        <div class="col-xs-10 col-sm-12 bg-dark-blue bar-content">
+          <h3>
+            Celtica
+          </h3>
+          <span class="label label-primary pull-right">
+              closed
+          </span>
 
-<% @bars.each do |bar| %>
-
-<%= render 'bar_card' , bar: bar %>
-
-<% end %>
-
+          <div>
+            <small>rue marché aux herbes</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%# render 'bar_card' , bar: bar %>

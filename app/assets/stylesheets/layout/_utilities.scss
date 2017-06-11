@@ -6,13 +6,17 @@
 
 // Paddings
 .padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .marged {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.marged-full {
+  margin: 1em;
 }
 
 // Backgrounds
