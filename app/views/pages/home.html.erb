@@ -1,12 +1,15 @@
-
-
-
-<% if !user_signed_in? %>
-<%= link_to new_user_session_path, class: "btn btn-primary btn-lg" do %>
-SIGN IN <i class="fa fa-sign-in" aria-hidden="true"></i>
-<% end %>
-<% else %>
-<%= link_to bars_path, class: "btn btn-primary btn-lg" do %>
-Bars <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
-<% end %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url("bg.jpg") %>">
+  <div class="banner-content">
+    <h1>Some Stuff</h1>
+    <p>Very cool stuff, useful and smart</p>
+    <% if !user_signed_in? %>
+    <%= link_to new_user_session_path, class: "btn btn-primary btn-lg" do %>
+    SIGN IN <i class="fa fa-sign-in" aria-hidden="true"></i>
+    <% end %>
+    <% else %>
+    <%= link_to bars_path, class: "btn btn-primary btn-lg" do %>
+    Bars <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+    <% end %>
+    <% end %>
+  </div>
+</div>
