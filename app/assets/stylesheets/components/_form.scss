@@ -1,7 +1,7 @@
 .login-clean {
   background: linear-gradient($linear);
   padding:20px 0;
-  height: $full-size-nav;
+  min-height: $full-size-nav;
 }
 
 .login-clean form {
@@ -15,7 +15,7 @@
   box-shadow:1px 1px 5px rgba(0,0,0,0.1);
 }
 
-.login-clean .illustration {
+.login-clean .form-title {
   text-align:center;
   padding:0 0 20px;
   font-size:7em;
@@ -25,7 +25,7 @@
 .login-clean form .form-control {
   background:#f7f9fc;
   border:none;
-  border-bottom:1px solid #dfe7f1;
+  border-bottom:1px solid $brand-color;
   border-radius:0;
   box-shadow:none;
   outline:none;
@@ -53,18 +53,18 @@
 //   transform:translateY(1px);
 // }
 
-.login-clean form .forgot {
-  display:block;
-  text-align:center;
-  font-size:12px;
-  color:#6f7a85;
-  opacity:0.9;
-  text-decoration:none;
-  margin-top: 5px;
-}
+// .login-clean form .forgot {
+//   display:block;
+//   text-align:center;
+//   font-size:12px;
+//   color:#6f7a85;
+//   opacity:0.9;
+//   text-decoration:none;
+//   margin-top: 5px;
+// }
 
-.login-clean form .forgot:hover, .login-clean form .forgot:active {
-  opacity:1;
-  text-decoration:none;
-}
+// .login-clean form .forgot:hover, .login-clean form .forgot:active {
+//   opacity:1;
+//   text-decoration:none;
+// }
 
