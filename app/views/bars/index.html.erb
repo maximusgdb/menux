@@ -1,25 +1,34 @@
 <div class="container">
   <div class="row">
-    <%# @bars.each do |bar| %>
-    <% 5.times do %>
-    <div class="col-xs-12 col-sm-6 col-md-4 bar-card">
-      <div class="row">
-        <div class="col-xs-2 col-sm-12 bg-blue bar-photo">
-        </div>
-        <div class="col-xs-10 col-sm-12 bg-dark-blue bar-content">
-          <h3>
-            Celtica
-          </h3>
-          <span class="label label-primary pull-right">
-              closed
-          </span>
+    <% @bars.each do |bar| %>
 
-          <div>
-            <small>rue marché aux herbes</small>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="bar-card">
+        <div class="row">
+
+          <div class="col-xs-2 col-sm-12">
+            <div class="bar-photo bg-blue">
+            </div>
           </div>
+
+          <div class="col-xs-10 col-sm-12">
+            <div class="bar-content bg-dark-blue">
+              <span class="label label-primary pull-right">
+                  closed
+              </span>
+              <h3>
+                <%= bar.name %>
+              </h3>
+              <div>
+                <small><%= bar.address %></small>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
     <% end %>
   </div>
 </div>
