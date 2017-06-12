@@ -1,20 +1,21 @@
 <div class="container">
   <div class="row">
     <% @bars.each do |bar| %>
+    <%= link_to bar_drinks_path(bar) do %>
 
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="bar-card">
         <div class="row">
 
           <div class="col-xs-2 col-sm-12">
-            <div class="bar-photo bg-blue">
+            <div class="bar-photo">
             </div>
           </div>
 
           <div class="col-xs-10 col-sm-12">
-            <div class="bar-content bg-dark-blue">
+            <div class="bar-content">
               <span class="label label-primary pull-right">
-                  closed
+                closed
               </span>
               <h3>
                 <%= bar.name %>
@@ -23,11 +24,13 @@
                 <small><%= bar.address %></small>
               </div>
             </div>
+
           </div>
 
         </div>
       </div>
     </div>
+    <% end %>
 
     <% end %>
   </div>
