@@ -72,8 +72,8 @@ end
 end
 
 2.times do
-  User.create(email: Faker::Internet.email, password: "aaaaaaaaa", name: Faker::Name.name )
+  User.create(email: Faker::Internet.email, password: "aaaaaa", name: Faker::Name.name, waiter: true, bar_id: 2 )
 end
 
 User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
-User.create(email: "test@test.be", password: "password", name: "test", admin: true)
+User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar_id: 2)

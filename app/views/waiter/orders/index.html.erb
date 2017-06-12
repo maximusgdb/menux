@@ -1,7 +1,7 @@
 <h1 class="text-center">Orders overview</h1>
 
 <div class="container-fluid">
-  <% @orders.each do |order| %>
+  <% @bar.orders.each do |order| %>
   <% if order.confirmed == true && order.delivered == false %>
   <div class="row <%= 'order-in-charge' if order.in_charge == true  %>">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
