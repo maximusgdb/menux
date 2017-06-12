@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   has_many :order_lines, dependent: :destroy
   has_many :drinks, through: :order_lines
 
-  validates_numericality_of :table_number, less_than_or_equal_to: :max_table_number
+  validates_numericality_of :table_number, allow_nil: true, less_than_or_equal_to: :max_table_number
 
 
   def total_order
