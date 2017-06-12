@@ -26,7 +26,7 @@ bar = Bar.create(name: "Celtica",
     vendredi  13:00–07:00
     samedi  13:00–07:00
     dimanche  13:00–05:00",
-    number_of_tables: 10
+  number_of_tables: 10
   )
 
 big_games = Bar.create(name: "The Big Games",
@@ -40,7 +40,20 @@ big_games = Bar.create(name: "The Big Games",
     mardi 12:00–05:00
     mercredi  12:00–05:00
     jeudi 12:00–05:00",
-    number_of_tables: 0
+  number_of_tables: 0
+  )
+
+deli = Bar.create(name: "Delirium Café",
+  address: "Impasse de la Fidélité 4, 1000 Bruxelles",
+  description: "Bar avec plus de 2 000 bières, concerts le jeudi soir et objets de déco sur l'univers de la brasserie.",
+  opening_hours: "dimanche  10:00–02:00
+    lundi 10:00–04:00
+    mardi 10:00–04:00
+    mercredi  10:00–04:00
+    jeudi 10:00–04:00
+    vendredi  10:00–04:00
+    samedi  10:00–04:00",
+  number_of_tables: 100
   )
 
 # inserting categories
@@ -57,18 +70,11 @@ prices = [1.3, 2.7, 10, 3.3]
 
 10.times do
   beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: beers, bar: bar)
-end
 
-10.times do
   wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price: prices.sample, size: sizes.sample, category: softs, bar: bar)
-end
 
-10.times do
   beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: categories.sample, bar: big_games)
-end
-
-10.times do
-  wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price: prices.sample, size: sizes.sample, category: categories.sample, bar: big_games)
+  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: categories.sample, bar: deli)
 end
 
 2.times do

@@ -6,8 +6,8 @@
 
 // Paddings
 .padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .marged {
@@ -15,8 +15,12 @@
   margin-bottom: 1em;
 }
 
+.marged-full {
+  margin: 1em;
+
 .push-bottom {
   margin-bottom: 70px;
+
 }
 
 // Backgrounds
@@ -36,7 +40,7 @@
 // Body
 
 body {
-    padding-top: 60px;
+  background: rgba(0,0,0,0.05);
 }
 
 .link-no-decoration{
@@ -54,6 +58,10 @@ body {
   height: 30px;
 }
 
+// cover all the page
+.cover-all{
+  height: 100vh;
+}
 // Orders in_charge: change color
 
 .order-in-charge{
