@@ -11,8 +11,9 @@ class Order < ApplicationRecord
 
   def total_order
     order_lines.inject(0)  do |total, line|
-      total + (line.quantity * line.drink.price)
+      (total + (line.quantity * line.drink.price)).round(2)
     end
+
   end
 
   def number_of_items_per_order
