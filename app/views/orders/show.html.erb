@@ -39,14 +39,20 @@
         </tbody>
       </table>
 
+      <div class="button-bar">
+        <p>Pick up at the bar</p>
+      </div>
+
       <%= simple_form_for [@bar, @order] do |f| %>
 
-      <div class="button-delivery">
-        <div>Choose delivery: </div>
-        <div>
-          <%= f.select :table_number, options_for_select(@bar.number_of_tables.times.to_a.map(&:succ)), {prompt: "Pick at the bar or..."}, class: "dropdown" %>
+
+      <% unless @bar.number_of_tables.nil? %>
+        <div class="button-delivery">
+          <div>
+            <%= f.input :table_number, input_html: { min: "0", step: "1", max: @bar.number_of_tables }, label: "Or choose your table number" %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
