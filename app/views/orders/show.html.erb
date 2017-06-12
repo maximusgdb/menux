@@ -20,11 +20,11 @@
             <td><%= line.drink.size %></td>
             <td class="text-center">
               <div class="btn-group" role="group">
-                <%= link_to "-", bar_order_order_lines_path(@bar, current_user.current_order, drink_id: line.drink.id, remove: true, order: "order"), method: :post, class: "btn btn-default" %>
+                <%= link_to "-", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, remove: true, order: "order"), method: :post, class: "btn btn-default" %>
                 <div type="button" class="btn btn-default">
                   <%= line.quantity %>
                 </div>
-                <%= link_to "+", bar_order_order_lines_path(@bar, current_user.current_order, drink_id: line.drink.id, order: "order"), method: :post, class: "btn btn-default"%>
+                <%= link_to "+", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, order: "order"), method: :post, class: "btn btn-default"%>
               </div>
             </td>
             <td><%= line.drink.price * line.quantity %> €</td>
