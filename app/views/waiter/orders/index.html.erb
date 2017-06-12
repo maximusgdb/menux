@@ -1,9 +1,9 @@
 <h1 class="text-center">Orders overview</h1>
 
 <div class="container-fluid">
-  <% @orders.each do |order| %>
-
-  <div class="row">
+  <% @bar.orders.each do |order| %>
+  <% if order.confirmed == true && order.delivered == false %>
+  <div class="row <%= 'order-in-charge' if order.in_charge == true  %>">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
       <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration" do %>
       <button class="btn btn-default btn-block btn-lg marged active" >
@@ -17,6 +17,7 @@
         <%= pluralize(order.number_of_items_per_order, "Drink") %>
 
         <label class="checkbox-inline pull-right"><input type="checkbox" class="big-checkbox" value=""></label>
+        <% end %>
         <% end %>
 
 

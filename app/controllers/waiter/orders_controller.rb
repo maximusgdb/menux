@@ -17,6 +17,10 @@ class Waiter::OrdersController < ApplicationController
 def update
   @order = Order.find(params[:id])
   authorize @order
+  @order.in_charge = true if params[:in_charge] == "true"
+  @order.delivered = true if params[:delivered] == "true"
+
+  @order.save
   redirect_to bar_waiter_orders_path(@bar, @order)
 end
 
@@ -26,8 +30,9 @@ end
     @bar = Bar.find(params[:bar_id])
   end
 
+
   def orders_params
-    params.require(:order).permit(:table_number, :delivered, :confirmed)
+    params.require(:order).permit(:table_number, :delivered, :confirmed, :in_charge)
   end
 
 end

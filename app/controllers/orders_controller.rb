@@ -7,6 +7,16 @@ class OrdersController < ApplicationController
     authorize @order
   end
 
+  def update
+    @order = Order.find(params[:id])
+    authorize @order
+    if @order.update(orders_params)
+      redirect_to bar_order_path(@bar, @order)
+    else
+      render :new
+    end
+  end
+
   private
 
   def find_bar
