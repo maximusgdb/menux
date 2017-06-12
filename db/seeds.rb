@@ -76,4 +76,4 @@ end
 end
 
 User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
-
+User.create(email: "test@test.be", password: "password", name: "test", admin: true)
