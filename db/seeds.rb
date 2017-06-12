@@ -75,4 +75,5 @@ end
   User.create(email: Faker::Internet.email, password: "aaaaaaaaa", name: Faker::Name.name )
 end
 
-
+User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
+User.create(email: "test@test.be", password: "password", name: "test", admin: true)
