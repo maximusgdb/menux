@@ -18,6 +18,8 @@ def update
   @order = Order.find(params[:id])
   authorize @order
   @order.in_charge = true if params[:in_charge] == "true"
+  @order.delivered = true if params[:delivered] == "true"
+
   @order.save
   redirect_to bar_waiter_orders_path(@bar, @order)
 end
