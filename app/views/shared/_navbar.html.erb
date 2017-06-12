@@ -32,8 +32,8 @@
           <i class="fa fa-home" aria-hidden="true"></i> <%= t(".home", default: "Home") %>
         <% end %>
 
-        <% if current_user.waiter = true  %>
-        <%= link_to  bar_waiter_orders_path, class: "c-menu__link" do %>
+        <% if current_user.waiter == true  %>
+        <%= link_to bar_waiter_orders_path(current_user.bar), class: "c-menu__link" do %>
           <i class="fa fa-user" aria-hidden="true"></i> <%= t(".waiter", default: "Waiter") %>
         <% end %>
 
