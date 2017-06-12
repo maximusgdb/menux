@@ -1,83 +1,79 @@
+<% if user_signed_in? %>
 <div class="navbar-menux navbar-menux-fixed" role="navigation">
-<% unless @hide_back_button %>
-  <div onclick="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-<% end %>
-  <h3 class="navbar-title" href="#">MenuX</h3>
-  <div id="o-wrapper" class="o-wrapper">
-    <div class="c-buttons">
-       <div id="c-button--slide-right" class="c-button">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="fa fa-bars navbar-button" aria-hidden="true"></i>
+  <% unless @hide_back_button %>
+    <div onclick="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+  <% end %>
+    <h3 class="navbar-title" href="#">MenuX</h3>
+    <div id="o-wrapper" class="o-wrapper">
+      <div class="c-buttons">
+         <div id="c-button--slide-right" class="c-button">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars navbar-button" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
-  <button class="c-menu__close">&larr; Back</button>
-  <ul class="c-menu__items">
-    <% unless current_user.nil? %>
-      <li class="c-menu__profile">
-        <div>
-          <%= link_to edit_user_registration_path, class: "c-menu__link c-menu__usercard" do %>
-              <%= image_tag ('icon-user-default.png'), size: "65" %>
-              <%= current_user.email %>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
-    <li class="c-menu__item">
-      <%= link_to bars_path, class: "c-menu__link" do %>
-        <i class="fa fa-home" aria-hidden="true"></i> <%= t(".home", default: "Home") %>
+  <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+    <button class="c-menu__close">&larr; Back</button>
+    <ul class="c-menu__items">
+      <% unless current_user.nil? %>
+        <li class="c-menu__profile">
+          <div>
+            <%= link_to edit_user_registration_path, class: "c-menu__link c-menu__usercard" do %>
+                <%= image_tag ('icon-user-default.png'), size: "65" %>
+                <%= current_user.email %>
+            <% end %>
+          </div>
+        </li>
       <% end %>
-    </li>
-    <% if current_user.nil? %>
-      <li class="c-menu__item" id="logout">
-        <%= link_to new_user_session_path, class: "c-menu__link" do %>
-          <i class="fa fa-sign-in"></i> <%= t(".sign_in", default: "Sign in") %>
+      <li class="c-menu__item">
+        <%= link_to bars_path, class: "c-menu__link" do %>
+          <i class="fa fa-home" aria-hidden="true"></i> <%= t(".home", default: "Home") %>
         <% end %>
       </li>
-    <% else %>
-    <li class="c-menu__item" id="logout">
-      <%= link_to destroy_user_session_path, method: :delete, class: "c-menu__link" do %>
-        <i class="fa fa-sign-out"></i> <%= t(".sign_out", default: "Sign out") %>
+      <% if current_user.nil? %>
+        <li class="c-menu__item" id="logout">
+          <%= link_to new_user_session_path, class: "c-menu__link" do %>
+            <i class="fa fa-sign-in"></i> <%= t(".sign_in", default: "Sign in") %>
+          <% end %>
+        </li>
+      <% else %>
+      <li class="c-menu__item" id="logout">
+        <%= link_to destroy_user_session_path, method: :delete, class: "c-menu__link" do %>
+          <i class="fa fa-sign-out"></i> <%= t(".sign_out", default: "Sign out") %>
+        <% end %>
+      </li>
       <% end %>
-    </li>
-    <% end %>
-  </ul>
-</nav>
+    </ul>
+  </nav>
 
-<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+  <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
 
 
 
-<!-- Specific js -->
+  <!-- Specific js -->
 
-<% content_for(:after_js) do %>
-<script type="text/javascript">
-  function goBack() {
-    window.history.back();
-  }
-  /**
-   * Slide right instantiation and action.
-   */
-   var slideRight = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'slide-right',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-   var slideRightBtn = document.querySelector('#c-button--slide-right');
+  <% content_for(:after_js) do %>
+  <script type="text/javascript">
+    function goBack() {
+      window.history.back();
+    }
+    /**
+     * Slide right instantiation and action.
+     */
+     var slideRight = new Menu({
+      wrapper: '#o-wrapper',
+      type: 'slide-right',
+      menuOpenerClass: '.c-button',
+      maskId: '#c-mask'
+    });
+     var slideRightBtn = document.querySelector('#c-button--slide-right');
 
-   slideRightBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    slideRight.open();
-  });
-</script>
+     slideRightBtn.addEventListener('click', function(e) {
+      e.preventDefault;
+      slideRight.open();
+    });
+  </script>
+  <% end %>
 <% end %>
-
-
-
-
-
-
