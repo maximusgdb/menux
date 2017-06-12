@@ -20,11 +20,14 @@ $header-font: "Raleway", "Helvetica", "sans-serif";
 $base-size: 16px;
 $base-height: 1.4;
 
+$full-size: calc(100vh);
+$full-size-nav: calc(100vh - 60px);
+
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color: #efca08;
 
 $red: #EE5F5B;
 $blue: #469AE0;
@@ -32,3 +35,6 @@ $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
 $gray: #000000;
+
+// linear gradient
+$linear: 135deg, rgba(0,166,166,0.3) 0%, rgba(239,202,8,0.3) 100%;
