@@ -6,15 +6,23 @@ class Order < ApplicationRecord
   has_many :order_lines, dependent: :destroy
   has_many :drinks, through: :order_lines
 
+  validates_numericality_of :table_number, allow_nil: true, less_than_or_equal_to: :max_table_number
+
+
   def total_order
     order_lines.inject(0)  do |total, line|
-      total + (line.quantity * line.drink.price)
+      (total + (line.quantity * line.drink.price)).round(2)
     end
+
   end
 
   def number_of_items_per_order
     order_lines.inject(0) do |total, line|
       total + line.quantity
     end
+  end
+
+  def max_table_number
+    bar.number_of_tables
   end
 end

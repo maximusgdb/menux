@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     if @order.update(orders_params)
       redirect_to bar_order_path(@bar, @order)
     else
-      render :new
+      render :show
     end
   end
 
