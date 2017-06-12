@@ -43,7 +43,7 @@
         <p>Pick up at the bar</p>
       </div>
 
-      <%= simple_form_for [@bar, @order] do |f| %>
+      <%= simple_form_for [@bar, @order], :method => :put do |f| %>
 
 
       <% unless @bar.number_of_tables.nil? %>

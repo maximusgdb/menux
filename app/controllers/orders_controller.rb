@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     authorize @order
-    @order.confirmed = true
     if @order.update(orders_params)
       redirect_to bar_order_path(@bar, @order)
     else
