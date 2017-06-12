@@ -1,12 +1,15 @@
-
-
-
-<% if !user_signed_in? %>
-<%= link_to new_user_session_path, class: "btn btn-primary btn-lg" do %>
-SIGN IN <i class="fa fa-sign-in" aria-hidden="true"></i>
-<% end %>
-<% else %>
-<%= link_to bars_path, class: "btn btn-primary btn-lg" do %>
-Bars <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
-<% end %>
-<% end %>
+<div class="banner <%= 'banner-cover-all' unless user_signed_in? %>" style="background-image: linear-gradient(135deg, rgba(0,166,166,0.3) 0%, rgba(239,202,8,0.3) 100%), url('https://raw.githubusercontent.com/matthieudou/menux/master/app/assets/images/bg.jpg')">
+  <div class="banner-content">
+    <h1>MenuX</h1>
+    <p>Grab a beer faster than the light</p>
+    <% if !user_signed_in? %>
+    <%= link_to new_user_session_path, class: "btn btn-primary btn-lg" do %>
+    SIGN IN <i class="fa fa-sign-in" aria-hidden="true"></i>
+    <% end %>
+    <% else %>
+    <%= link_to bars_path, class: "btn btn-primary btn-lg" do %>
+    Bars <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+    <% end %>
+    <% end %>
+  </div>
+</div>
