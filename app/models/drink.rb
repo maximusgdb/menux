@@ -6,5 +6,7 @@ class Drink < ApplicationRecord
   validates :size, presence: true
   has_many :order_lines, dependent: :destroy
 
+   monetize :price_cents
+
   mount_uploader :picture, PhotoUploader
 end
