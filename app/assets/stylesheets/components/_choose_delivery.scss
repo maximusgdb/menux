@@ -1,28 +1,29 @@
 .button-delivery {
   text-align: center;
   margin: 10px auto;
-  width: 80%;
+  width: 60%;
   padding: 15px 20px;
   border-radius: 3px;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: $brand-color;
+  color: black;
   &:hover {
-    color: white;
+    color: black;
   }
 }
 
 .button-bar {
   text-align: center;
   margin: 10px auto;
-  width: 80%;
+  width: 60%;
   padding: 15px 20px;
   border-radius: 3px;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: $brand-color;
+  color: black;
   &:hover {
-    color: white;
+    color: black;
+    cursor: pointer; cursor: hand;
   }
   p {
     margin-bottom: 0;
@@ -30,14 +31,14 @@
 }
 
 .chosen {
-    background-color: grey;
-    color: black;
+    background-color: #847000;
+    color: white;
     &:hover {
-      color: black;
+      color: white;
     }
   }
 
-.dropdown {
+.table_picker {
   background-color: black;
 }
 
@@ -46,10 +47,21 @@
   height: 70px;
   position: fixed;
   bottom: 0;
-  background-color: #00a6a6;
+  background-color: #32B796;
+  border-color: #2da386;
   font-weight: bold;
   border-radius: 2px 2px 0 0;
   color: white;
+  display: flex;
+  justify-content: center;
+  i {
+    margin-right: 20px;
+  }
+  &:hover {
+    background-color: #278f75;
+    border-color: #1f735e;
+    color: #fff;
+  }
 }
 
 
