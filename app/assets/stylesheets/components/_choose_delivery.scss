@@ -5,10 +5,10 @@
   padding: 15px 20px;
   border-radius: 3px;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: #F0CC00;
+  color: black;
   &:hover {
-    color: white;
+    color: black;
   }
 }
 
@@ -19,10 +19,11 @@
   padding: 15px 20px;
   border-radius: 3px;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: #F0CC00;
+  color: black;
   &:hover {
-    color: white;
+    color: black;
+    cursor: pointer; cursor: hand;
   }
   p {
     margin-bottom: 0;
@@ -30,14 +31,14 @@
 }
 
 .chosen {
-    background-color: grey;
-    color: black;
+    background-color: #847000;
+    color: white;
     &:hover {
-      color: black;
+      color: white;
     }
   }
 
-.dropdown {
+.table_picker {
   background-color: black;
 }
 

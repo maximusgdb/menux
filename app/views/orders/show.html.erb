@@ -49,7 +49,7 @@
       <% unless @bar.number_of_tables == 0 %>
         <div class="button-delivery">
           <div>
-            <%= f.input :table_number, input_html: { min: "0", step: "1", max: @bar.number_of_tables }, label: "Or choose your table number" %>
+            <%= f.input :table_number, input_html: { min: "0", step: "1", max: @bar.number_of_tables }, label: "Or enter table number", class: "form-control table_picker" %>
           </div>
         </div>
       <% end %>
