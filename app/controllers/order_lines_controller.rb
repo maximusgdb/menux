@@ -36,6 +36,7 @@ class OrderLinesController < ApplicationController
   end
 
   def find_order
-    @order = current_user.current_order
+    @bar = Bar.find(params[:bar_id])
+    @order = current_user.current_order_per_bar(@bar)
   end
 end
