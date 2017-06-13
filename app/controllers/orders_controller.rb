@@ -11,8 +11,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     authorize @order
     @order.amount = @order.total_order
-    if @order.update(orders_params)
-    redirect_to new_bar_order_payment_path(@bar, @order)
+    @order.table_number = orders_params[:table_number] if params[:order] && params[:order][:table_number]
+    if @order.save
+      redirect_to new_bar_order_payment_path(@bar, @order)
     else
       render :show
     end
@@ -25,7 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def orders_params
-    params.require(:order).permit(:table_number, :delivered, :confirmed)
+    params.require(:order).permit(:table_number, :delivered, :confirmed, :in_charge, :amount_cents, :payment)
   end
 
 end
