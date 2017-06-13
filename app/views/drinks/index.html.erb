@@ -9,6 +9,7 @@
         <% @first = true %>
         <% @bar.drinks.group_by(&:category).each do |category, drinks| %>
           <%= render 'category_dropdown', category: category, drinks: drinks, first: @first %>
+
           <% @first = false %>
         <% end %>
       </div>
