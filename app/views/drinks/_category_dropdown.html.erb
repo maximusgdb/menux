@@ -11,11 +11,9 @@
   </div>
   <div id="collapse-<%= category.name %>" class="panel-collapse collapse<%= ' in' if first %>" role="tabpanel" aria-labelledby="headingTwo">
     <div class="panel-body">
-      <table class="table table-striped">
         <% drinks.each do |drink| %>
           <%= render "drink_list_dropdown", drink: drink %>
         <% end %>
-      </table>
     </div>
   </div>
 </div>

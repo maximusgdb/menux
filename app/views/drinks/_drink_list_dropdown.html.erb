@@ -1,20 +1,44 @@
-<tr>
-  <td><%= drink.name %> <small><%= drink.size %></small></td>
-  <% order_line = current_user.current_order.order_lines.find_by(drink: drink) %>
-  <td>
-  <div class="btn-group pull-right" role="group">
+<div class="row border bg-blue">
+  <div class="col-xs-9 col-sm-11">
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <div class="label label-primary"><%= drink.price %> €</div>
+      </div>
+      <div class="col-xs-9 col-sm-2">
+        <small><%= drink.size %></small>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <h5><%= drink.name %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-3 col-sm-1">
+
+  </div>
+  <button data-toggle="collapse" data-target="#demo" class="btn btn-default pull-right">
+    <% order_line = current_user.current_order.order_lines.find_by(drink: drink) %>
     <% if order_line %>
-        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: order_line.drink.id, remove: true), method: :post, class: "btn btn-default" do %>
+      <%= order_line.quantity %>
+    <% else %>
+      +
+    <% end %>
+  </button>
+
+    <div id="demo" class="collapse">
+     <div class="btn-group btn-group-justified">
+       <div type="button" class="btn btn-default">
+        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: drink.id, remove: true), method: :post, class: "btn btn-default" do %>
         -
         <% end %>
-      <div type="button" class="btn btn-default">
-        <%= order_line.quantity %>
       </div>
-    <% end %>
-      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: drink.id), method: :post, class: "btn btn-default" do %>
+      <div type="button" class="btn btn-default">
+        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: drink.id), method: :post, class: "btn btn-default" do %>
        +
       <% end %>
-    </div>
-  </td>
-</tr>
+      </div>
 
+     </div>
+    </div>
+</div>
+
+</tr>
