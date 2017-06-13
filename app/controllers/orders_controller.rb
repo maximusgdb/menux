@@ -10,8 +10,9 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     authorize @order
+    @order.amount = @order.total_order
     if @order.update(orders_params)
-      redirect_to bar_order_path(@bar, @order)
+    redirect_to new_bar_order_payment_path(@bar, @order)
     else
       render :show
     end
