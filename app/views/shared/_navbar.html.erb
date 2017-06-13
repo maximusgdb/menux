@@ -32,8 +32,10 @@
           <i class="fa fa-home" aria-hidden="true"></i> <%= t(".home", default: "Home") %>
         <% end %>
 
-        <% if current_user.bar == true %>
-            <%= render 'shared/order_overview_user' %>
+        <% if current_user.orders.length >= 1  %>
+        <%= link_to bar_orders_path(current_user.bar), class: "c-menu__link" do %>
+          <i class="fa fa-star" aria-hidden="true"></i> <%= t(".waiter", default: "My orders") %>
+        <% end %>
         <% end %>
 
         <% if current_user.waiter == true  %>

@@ -1,31 +1,22 @@
-<% content_for :navbar do %>
-  <%= render 'shared/navbar_barname' %>
-<% end %>
+
 
 <h1 class="text-center">My Orders overview</h1>
 
 <div class="container-fluid">
   <% current_user.orders.each do |order| %>
   <% if order.confirmed == true %>
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-      <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration" do %>
-      <button class="btn btn-default btn-block btn-lg marged active" >
-
-        <% if (order.table_number.present?) then%>
-        <p class="pull-left">Table: <%= order.table_number %></p>
-        <% else %>
-        <p class="pull-left">At the bar</p>
-        <% end %>
-
-        <%= pluralize(order.number_of_items_per_order, "Drink") %>
-        <% end %>
-        <% end %>
+  <% @order.order_lines.each do |line| %>
+  <tr>
+    <td><%= line.drink.name %></td>
+    <td><%= line.drink.size %></td>
+    <td><%= line.quantity %></td>
+<td><%= line.drink.price * line.quantity %> €</td>
+</tr>
+<% end %>
+<% end %>
+<% end %>
 
 
 
-      </div>
-    </div>
-    <% end %>
-  </div>
 
 
