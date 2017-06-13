@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612100849) do
+ActiveRecord::Schema.define(version: 20170613091338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170612100849) do
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.float "price"
     t.string "size"
     t.bigint "category_id"
     t.boolean "favorite", default: false
@@ -43,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170612100849) do
     t.bigint "bar_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["bar_id"], name: "index_drinks_on_bar_id"
     t.index ["category_id"], name: "index_drinks_on_category_id"
   end
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20170612100849) do
     t.boolean "delivered", default: false
     t.boolean "confirmed", default: false
     t.boolean "in_charge", default: false
+    t.integer "amount_cents", default: 0, null: false
+    t.json "payment"
     t.index ["bar_id"], name: "index_orders_on_bar_id"
     t.index ["client_id"], name: "index_orders_on_client_id"
     t.index ["waiter_id"], name: "index_orders_on_waiter_id"

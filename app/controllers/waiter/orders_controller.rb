@@ -8,7 +8,7 @@ class Waiter::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+  @order = Order.where(confirmed: true).find(params[:id])
     authorize @order
 
 

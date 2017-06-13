@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :drinks
     resources :orders, only: [:index, :create, :update, :destroy, :show] do
       resources :order_lines, only: [:create]
+      resources :payments, only: [:new, :create]
+
     end
     namespace :waiter do
       resources :orders, only: [ :index, :show, :update]

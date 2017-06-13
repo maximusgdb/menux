@@ -1,27 +1,27 @@
 <li class="list-group-item">
   <div class="row vertical-align">
     <div class="col-xs-10">
-          <!-- price and quantity -->
-          <div class="col-xs-12 col-sm-3 no-padding">
-            <div class="label label-primary"><%= drink.price %> €</div>
-            <div class="label label-default"><%= drink.size %></div>
-          </div>
-          <!-- name of the drink -->
-          <div class="col-xs-12 col-sm-9">
-            <h5><%= drink.name %></h5>
-          </div>
+      <!-- price and quantity -->
+      <div class="col-xs-12 col-sm-3 no-padding">
+        <div class="label label-primary"><%= humanized_money_with_symbol(drink.price) %></div>
+        <div class="label label-default"><%= drink.size %></div>
+      </div>
+      <!-- name of the drink -->
+      <div class="col-xs-12 col-sm-9">
+        <h5><%= drink.name %></h5>
+      </div>
     </div>
     <!-- button for options -->
     <div class="col-xs-2">
       <% order_line = current_user.current_order_per_bar(@bar).order_lines.find_by(drink: drink) %>
       <% if order_line %>
-      <div data-toggle="collapse" data-target="#dink-<%= drink.id %>" class="btn btn-default pull-right">
-        <%= order_line.quantity %>
-      </div>
+        <div data-toggle="collapse" data-target="#dink-<%= drink.id %>" class="btn btn-default pull-right">
+          <%= order_line.quantity %>
+        </div>
       <% else %>
-      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default pull-right" do %>
-      +
-      <% end %>
+        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default pull-right" do %>
+          +
+        <% end %>
       <% end %>
     </div>
   </div>
