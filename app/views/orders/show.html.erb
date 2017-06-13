@@ -8,40 +8,9 @@
       <div class="page-header">
         <h1 class="text-center">Order overview <small><%= @bar.name %></small></h1>
       </div>
-      <table class="table table-hover table-striped">
-        <thead>
-          <tr>
-            <th>Drink name</th>
-            <th>Size</th>
-            <th class="text-center">Quantity</th>
-            <th>price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @order.order_lines.each do |line| %>
-          <tr>
-            <td><%= line.drink.name %></td>
-            <td><%= line.drink.size %></td>
-            <td class="text-center">
-              <div class="btn-group" role="group">
-                <%= link_to "-", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, remove: true, order: "order"), method: :post, class: "btn btn-default" %>
-                <div type="button" class="btn btn-default">
-                  <%= line.quantity %>
-                </div>
-                <%= link_to "+", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, order: "order"), method: :post, class: "btn btn-default"%>
-              </div>
-            </td>
-            <td><%= line.drink.price * line.quantity %> €</td>
-          </tr>
-          <% end %>
-          <tr class="danger">
-            <td>TOTAL :</td>
-            <td></td>
-            <td class="text-center"><%= pluralize(@order.number_of_items_per_order, "Item") %></td>
-            <td><%= @order.total_order %> €</td>
-          </tr>
-        </tbody>
-      </table>
+
+      <%= render 'ordertable' %>
+
 
       <div class="button-bar">
         <p>Pick up at the bar</p>
