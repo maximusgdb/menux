@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # suppressing all the previous seeds
+
+User.destroy_all
 Bar.destroy_all
 Order.destroy_all
 Category.destroy_all
 Drink.destroy_all
-User.destroy_all
-
 
 # inserting bars
 bar = Bar.create(name: "Celtica",
