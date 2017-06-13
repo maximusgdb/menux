@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 <div class="navbar-menux navbar-menux-fixed" role="navigation">
   <% unless @hide_back_button %>
-    <div onclick="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+    <div id="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
   <% end %>
     <h3 class="navbar-title" href="#">MenuX</h3>
     <div id="o-wrapper" class="o-wrapper">
@@ -63,9 +63,12 @@
 
   <% content_for(:after_js) do %>
   <script type="text/javascript">
-    function goBack() {
-      window.history.back();
-    }
+    $(document).ready(function(){
+      $('#back-button').click(function(){
+        parent.history.back();
+        return false;
+      });
+    });
     /**
      * Slide right instantiation and action.
      */
