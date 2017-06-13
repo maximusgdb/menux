@@ -1,14 +1,14 @@
 <li class="list-group-item">
   <div class="row vertical-align">
     <div class="col-xs-10">
-      <!-- price and quantity -->
-      <div class="col-xs-12 col-sm-3 no-padding">
-        <div class="label label-primary"><%= humanized_money_with_symbol(drink.price) %></div>
-        <div class="label label-default"><%= drink.size %></div>
-      </div>
       <!-- name of the drink -->
       <div class="col-xs-12 col-sm-9">
         <h5><%= drink.name %></h5>
+      </div>
+      <!-- price and quantity -->
+      <div class="col-xs-12 col-sm-3">
+        <div class="label label-primary"><%= humanized_money_with_symbol(drink.price) %></div>
+        <div class="label label-default"><%= drink.size %></div>
       </div>
     </div>
     <!-- button for options -->
