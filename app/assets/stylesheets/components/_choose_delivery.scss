@@ -46,10 +46,21 @@
   height: 70px;
   position: fixed;
   bottom: 0;
-  background-color: #00a6a6;
+  background-color: #32B796;
+  border-color: #2da386;
   font-weight: bold;
   border-radius: 2px 2px 0 0;
   color: white;
+  display: flex;
+  justify-content: center;
+  i {
+    margin-right: 20px;
+  }
+  &:hover {
+    background-color: #278f75;
+    border-color: #1f735e;
+    color: #fff;
+  }
 }
 
 
