@@ -1,22 +1,41 @@
-<tr>
-  <td><%= drink.name %> <small><%= drink.size %></small></td>
-  <% order_line = current_user.current_order_per_bar(@bar).order_lines.find_by(drink: drink) %>
-  <td>
-  <div class="btn-group pull-right" role="group">
-      <p>Price: <%= humanized_money_with_symbol(drink.price) %></p>
-    <% if order_line %>
-        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: order_line.drink.id, remove: true), method: :post, class: "btn btn-default" do %>
-        -
-        <% end %>
-      <div type="button" class="btn btn-default">
-        <%= order_line.quantity %>
-
+<li class="list-group-item">
+  <div class="row vertical-align">
+    <div class="col-xs-10">
+      <!-- name of the drink -->
+      <div class="col-xs-12 col-sm-9">
+        <h5><%= drink.name %></h5>
       </div>
-    <% end %>
-      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default" do %>
-       +
+      <!-- price and quantity -->
+      <div class="col-xs-12 col-sm-3">
+        <div class="label label-primary"><%= humanized_money_with_symbol(drink.price) %></div>
+        <div class="label label-default"><%= drink.size %></div>
+      </div>
+    </div>
+    <!-- button for options -->
+    <div class="col-xs-2">
+      <% order_line = current_user.current_order_per_bar(@bar).order_lines.find_by(drink: drink) %>
+      <% if order_line %>
+        <div data-toggle="collapse" data-target="#dink-<%= drink.id %>" class="btn btn-default pull-right">
+          <%= order_line.quantity %>
+        </div>
+      <% else %>
+        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default pull-right" do %>
+          +
+        <% end %>
       <% end %>
     </div>
-  </td>
-</tr>
+  </div>
 
+  <!-- collapse content |REMOVE|ADD| -->
+  <div id="dink-<%= drink.id %>" class="collapse">
+    <div class="btn-group btn-group-justified">
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id, remove: true), method: :post, class: "btn btn-default" do %>
+      -
+      <% end %>
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default" do %>
+      +
+      <% end %>
+    </div>
+
+  </div>
+</li>

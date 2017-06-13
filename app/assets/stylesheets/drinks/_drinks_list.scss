@@ -1,0 +1,15 @@
+.vertical-align {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  // min-height: 100%;
+}
+
+.border {
+  border-bottom: 1px $brand-color solid;
+}
+
+
+.no-padding {
+  padding: 0;
+}
