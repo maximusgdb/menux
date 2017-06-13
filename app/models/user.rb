@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :orders, foreign_key: "client_id"
   belongs_to :bar
 
-  def current_order
-    orders.find_by(confirmed: false)
+
+  def current_order_per_bar(bar)
+    orders.find_by(confirmed: false, bar_id: bar)
   end
 
   def self.from_omniauth(auth)

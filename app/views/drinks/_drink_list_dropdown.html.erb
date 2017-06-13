@@ -16,29 +16,29 @@
 
   </div>
   <button data-toggle="collapse" data-target="#demo" class="btn btn-default pull-right">
-    <% order_line = current_user.current_order.order_lines.find_by(drink: drink) %>
+    <% order_line = current_user.current_order_per_bar(@bar).order_lines.find_by(drink: drink) %>
     <% if order_line %>
-      <%= order_line.quantity %>
+    <%= order_line.quantity %>
     <% else %>
-      +
+    +
     <% end %>
   </button>
 
-    <div id="demo" class="collapse">
-     <div class="btn-group btn-group-justified">
-       <div type="button" class="btn btn-default">
-        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: drink.id, remove: true), method: :post, class: "btn btn-default" do %>
-        -
-        <% end %>
-      </div>
-      <div type="button" class="btn btn-default">
-        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order, drink_id: drink.id), method: :post, class: "btn btn-default" do %>
-       +
+  <div id="demo" class="collapse">
+   <div class="btn-group btn-group-justified">
+     <div type="button" class="btn btn-default">
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id, remove: true), method: :post, class: "btn btn-default" do %>
+      -
       <% end %>
-      </div>
-
-     </div>
     </div>
+    <div type="button" class="btn btn-default">
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default" do %>
+      +
+      <% end %>
+    </div>
+
+  </div>
+</div>
 </div>
 
 </tr>
