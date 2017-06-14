@@ -1,7 +1,7 @@
 
-jQuery("#ordertable_body").html("<%= escape_javascript(render 'orders/ordertable') %>");
 
+$('.rerender').replaceWith("<%= j render 'orders/ordertable', open_drink: @drink  %>");
 
-jQuery("#order_line_show<%= @drink.id %>").replaceWith("<%= j render 'drinks/drink_list_dropdown', drink: @drink, show_plus: 'in' %>");
+$("#order_line_show<%= @drink.id %>").replaceWith("<%= j render 'drinks/drink_list_dropdown', drink: @drink, show_plus: 'in' %>");
 
-jQuery("#footer_orders").replaceWith("<%= j render 'shared/footer_orders' %>");
+$("#footer_orders").replaceWith("<%= j render 'shared/footer_orders' %>");
