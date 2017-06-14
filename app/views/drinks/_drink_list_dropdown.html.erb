@@ -1,4 +1,4 @@
-<li class="list-group-item">
+<li class="list-group-item" id="order_line_show<%= drink.id%>">
   <div class="row vertical-align">
     <div class="col-xs-10">
       <!-- name of the drink -->
@@ -19,7 +19,7 @@
           <%= order_line.quantity %>
         </div>
       <% else %>
-        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default pull-right" do %>
+        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, remote: true, class: "btn btn-default pull-right" do %>
           +
         <% end %>
       <% end %>
@@ -27,12 +27,12 @@
   </div>
 
   <!-- collapse content |REMOVE|ADD| -->
-  <div id="dink-<%= drink.id %>" class="collapse">
+  <div id="dink-<%= drink.id %>" class="collapse <%= show_plus %>">
     <div class="btn-group btn-group-justified">
-      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id, remove: true), method: :post, class: "btn btn-default" do %>
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id, remove: true), method: :post, remote: true, class: "btn btn-default" do %>
       -
       <% end %>
-      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, class: "btn btn-default" do %>
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: drink.id), method: :post, remote: true, class: "btn btn-default" do %>
       +
       <% end %>
     </div>

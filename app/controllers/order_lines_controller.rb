@@ -6,26 +6,33 @@ class OrderLinesController < ApplicationController
     drink = Drink.find(params[:drink_id])
     authorize drink
     existing_line = @order.order_lines.find_by(drink: drink)
+    @drink = drink
     if existing_line
       if params[:remove]
         if existing_line.quantity - 1 == 0
           existing_line.destroy
         else
           existing_line.quantity -= 1
-          existing_line.save
+          if existing_line.save
+            respond_to do |format|
+              format.html { redirect_to bar_order_path(@bar, @order) }
+              format.js   # <-- will render `app/views/reviews/create.js.erb`
+            end
+          end
         end
       else
         existing_line.quantity += 1
-        existing_line.save
+        if existing_line.save
+          respond_to do |format|
+            format.html { redirect_to bar_order_path(@bar, @order) }
+            format.js # <-- will render `app/views/reviews/create.js.erb`
+          end
+        end
       end
     else
       @order.order_lines.create(drink: drink)
     end
-    if params[:order]
-      redirect_to bar_order_path(@bar, @order)
-    else
-      redirect_to bar_drinks_path(@bar)
-    end
+
   end
 
 

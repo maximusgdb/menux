@@ -1,4 +1,4 @@
-<%= link_to bar_order_path(@bar, @order), class: "link-no-decoration" do %>
+<%= link_to bar_order_path(@bar, @order), class: "link-no-decoration", id: 'footer_orders' do %>
   <div class="button-to-pay form-control vertical-align">
     <i class="material-icons pull-left">shopping_cart</i>
     <%= pluralize(@order.number_of_items_per_order, "Drink") %>
