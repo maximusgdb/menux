@@ -1,18 +1,20 @@
-
+<% content_for :navbar do %>
+<%= render 'shared/navbar_barname' %>
+<% end %>
 
 <h1 class="text-center">My Orders overview</h1>
 
 <div class="container-fluid">
-  <% current_user.orders.each do |order| %>
-  <% if order.confirmed == true %>
-  <% @order.order_lines.each do |line| %>
-  <tr>
-    <td><%= line.drink.name %></td>
-    <td><%= line.drink.size %></td>
-    <td><%= line.quantity %></td>
-<td><%= line.drink.price * line.quantity %> €</td>
-</tr>
-<% end %>
+  <% current_user.orders.order(:updated_at).each do |order| %>
+   <% if order.confirmed == true %>
+   <tr>
+     <%= link_to bar_order_path(@bar, order) do %>
+        <div class="text-align">
+        <p>Order number <%= order.id %></p>
+       <p><%= order.amount %></p>
+       <p>Order state: paid at <%= order.updated_at %></p>
+       </div>
+  <% end %>
 <% end %>
 <% end %>
 

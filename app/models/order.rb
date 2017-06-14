@@ -26,4 +26,6 @@ class Order < ApplicationRecord
   def max_table_number
     bar.number_of_tables
   end
+
+
 end

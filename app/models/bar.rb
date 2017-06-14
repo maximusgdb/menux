@@ -9,4 +9,7 @@ class Bar < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
+
+
+
 end
