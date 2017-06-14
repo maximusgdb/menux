@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
    before_action :find_bar
 
   def index
-    @orders = policy_scope(Order)
+    @orders = policy_scope(Order).where(bar_id: params[:bar_id])
   end
 
   def show

@@ -5,7 +5,7 @@
 <h1 class="text-center">My Orders overview</h1>
 
 <div class="container-fluid">
-  <% current_user.orders.order(:updated_at).each do |order| %>
+  <% @orders.order(updated_at: :desc).each do |order| %>
    <% if order.confirmed == true %>
    <tr>
      <%= link_to bar_order_path(@bar, order) do %>
