@@ -8,9 +8,9 @@
       <div class="page-header">
         <h1 class="text-center">Order overview <small><%= @bar.name %></small></h1>
       </div>
-
-      <%= render 'ordertable' %>
-
+      <ul class="list-group">
+        <%= render 'ordertable', open_drink: nil %>
+      </ul>
 
       <div class="button-bar">
         <p>Pick up at the bar</p>

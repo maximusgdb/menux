@@ -1,35 +1,51 @@
-<table class="table table-hover table-striped" id="ordertable_body">
-  <thead>
-    <tr>
-      <th>Drink name</th>
-      <th>Size</th>
-      <th class="text-center">Quantity</th>
-      <th>price</th>
-    </tr>
-  </thead>
+<div class="rerender">
 
-  <tbody>
-    <% @order.order_lines.each do |line| %>
-    <tr>
-      <td><%= line.drink.name %></td>
-      <td><%= line.drink.size %></td>
-      <td class="text-center">
-        <div class="btn-group" role="group">
-          <%= link_to "-", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, remove: true, order: "order"), method: :post, class: "btn btn-default", remote: true %>
-          <div type="button" class="btn btn-default" id="drinks_counter">
-            <%= line.quantity %>
-          </div>
-          <%= link_to "+", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, order: "order"), method: :post, remote: true, class: "btn btn-default" %>
+<% @order.order_lines.sort_by {|ol| ol.drink.name }.each do |line| %>
+<li class="list-group-item" id="order_line_show_2<%= line.drink.id %>">
+  <div class="row vertical-align">
+    <div class="col-xs-10">
+      <!-- name of the line.drink -->
+      <div class="col-xs-12 col-sm-9">
+        <h5><%= line.drink.name %></h5>
+      </div>
+      <!-- price and quantity -->
+      <div class="col-xs-12 col-sm-3">
+        <div class="label label-primary"><%= line.drink.price * line.quantity %> €</div>
+        <div class="label label-default"><%= line.drink.size %></div>
+      </div>
+    </div>
+    <!-- button for options -->
+    <div class="col-xs-2">
+      <% order_line = current_user.current_order_per_bar(@bar).order_lines.find_by(drink: line.drink) %>
+      <% if order_line %>
+        <div data-toggle="collapse" data-target="#dink-<%= line.drink.id %>" class="btn btn-default pull-right">
+          <%= order_line.quantity %>
         </div>
-      </td>
-      <td id="price_orderline"><%= line.drink.price * line.quantity %> €</td>
-    </tr>
-    <% end %>
-    <tr class="danger">
-      <td>TOTAL :</td>
-      <td></td>
-      <td class="text-center" id="total_amount"><%= pluralize(@order.number_of_items_per_order, "Item") %></td>
-      <td id="total_price"><%= @order.total_order %> €</td>
-    </tr>
-  </tbody>
-</table>
+      <% else %>
+        <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id), method: :post, remote: true, class: "btn btn-default pull-right" do %>
+          +
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- collapse content |REMOVE|ADD| -->
+  <div id="dink-<%= line.drink.id %>" class="collapse <%= "in" if order_line.drink == open_drink %>">
+    <div class="btn-group btn-group-justified">
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, remove: true), method: :post, remote: true, class: "btn btn-default" do %>
+      -
+      <% end %>
+      <%= link_to bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id), method: :post, remote: true, class: "btn btn-default" do %>
+      +
+      <% end %>
+    </div>
+
+  </div>
+</li>
+
+
+<% end %>
+<li class="list-group-item">
+  <h5>You have a total of <div class="label label-default"><%= pluralize(@order.number_of_items_per_order, "item") %></div> for <div class="label label-primary"><%= @order.total_order %> €</div></h5>
+</li>
+</div>
