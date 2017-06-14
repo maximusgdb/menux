@@ -8,6 +8,7 @@ class Order < ApplicationRecord
 
   validates_numericality_of :table_number, allow_nil: true, less_than_or_equal_to: :max_table_number
 
+     monetize :amount_cents
 
   def total_order
     order_lines.inject(0)  do |total, line|

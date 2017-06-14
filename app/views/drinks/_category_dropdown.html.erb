@@ -1,21 +1,23 @@
 <div class="panel panel-default">
   <div class="panel-heading" role="tab" id="heading-<%= category.name %>">
 
-    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= category.name %>" aria-expanded="false" aria-controls="collapse-<%= category.name %>">
+  <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse-<%= category.name %>" aria-expanded="false" aria-controls="collapse-<%= category.name %>">
       <h4 class="panel-title">
-        <%= category.name %>
+        <%= category.name.capitalize %>
         <i class="material-icons pull-right">expand_more</i>
       </h4>
 
-    </a>
+    </div>
   </div>
   <div id="collapse-<%= category.name %>" class="panel-collapse collapse<%= ' in' if first %>" role="tabpanel" aria-labelledby="headingTwo">
     <div class="panel-body">
-      <table class="table table-striped">
+      <ul class="list-group">
         <% drinks.each do |drink| %>
-          <%= render "drink_list_dropdown", drink: drink %>
+
+        <%= render "drink_list_dropdown", drink: drink %>
         <% end %>
-      </table>
+      </ul>
+
     </div>
   </div>
 </div>

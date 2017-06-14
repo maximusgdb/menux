@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # suppressing all the previous seeds
+
+User.destroy_all
 Bar.destroy_all
 Order.destroy_all
 Category.destroy_all
 Drink.destroy_all
-User.destroy_all
-
 
 # inserting bars
 bar = Bar.create(name: "Celtica",
@@ -66,15 +66,15 @@ cocktails = Category.create(name: "cocktails")
 categories = [softs, beers, wines, cocktails]
 
 sizes = ["5cl", "15cl", "33cl", "50cl", "75cl", "1L"]
-prices = [1.3, 2.7, 10, 3.3]
+prices = [130, 270, 100, 330]
 
 10.times do
-  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: beers, bar: bar)
+  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price_cents: prices.sample, size: sizes.sample, category: beers, bar: bar)
 
-  wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price: prices.sample, size: sizes.sample, category: softs, bar: bar)
+  wine = Drink.create(name: Faker::Cat.name, description: Faker::Cat.breed, price_cents: prices.sample, size: sizes.sample, category: softs, bar: bar)
 
-  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: categories.sample, bar: big_games)
-  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price: prices.sample, size: sizes.sample, category: categories.sample, bar: deli)
+  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price_cents: prices.sample, size: sizes.sample, category: categories.sample, bar: big_games)
+  beer = Drink.create(name: Faker::Beer.name, description: Faker::Beer.style, price_cents: prices.sample, size: sizes.sample, category: categories.sample, bar: deli)
 end
 
 2.times do
