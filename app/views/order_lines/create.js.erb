@@ -2,6 +2,6 @@
 
 $('.rerender').replaceWith("<%= j render 'orders/ordertable', open_drink: @drink  %>");
 
-$("#order_line_show<%= @drink.id %>").replaceWith("<%= j render 'drinks/drink_list_dropdown', drink: @drink, show_plus: 'in' %>");
+$("#order_line_show<%= @drink.id %>").replaceWith("<%= j render 'drinks/drink_list_dropdown', drink: @drink, show_plus: @line_empty ? '' : 'in' %>");
 
 $("#footer_orders").replaceWith("<%= j render 'shared/footer_orders' %>");
