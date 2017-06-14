@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
 
   @order.update(payment: charge.to_json, confirmed: true)
   flash[:notice] = "Payment done"
-  redirect_to bar_drinks_path(@bar)
+  redirect_to bar_order_path(@bar, @order)
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
