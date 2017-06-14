@@ -2,6 +2,6 @@
 jQuery("#ordertable_body").html("<%= escape_javascript(render 'orders/ordertable') %>");
 
 
-jQuery("#order_line_show<%= @drink.id %>").replaceWith("<%= j render 'drinks/drink_list_dropdown', drink: @drink, show_plus: 'in' %>");
+jQuery("#order_line_show<%= @drink.id %>").replaceWith("<%= j render 'drinks/drink_list_dropdown', drink: @drink, show_plus: @line_empty ? '' : 'in' %>");
 
 jQuery("#footer_orders").replaceWith("<%= j render 'shared/footer_orders' %>");

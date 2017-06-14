@@ -11,6 +11,7 @@ class OrderLinesController < ApplicationController
       if params[:remove]
         if existing_line.quantity - 1 == 0
           existing_line.destroy
+          @line_empty = true
         else
           existing_line.quantity -= 1
           if existing_line.save
