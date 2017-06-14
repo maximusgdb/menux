@@ -1,0 +1,24 @@
+<% content_for :navbar do %>
+<%= render 'shared/navbar_barname' %>
+<% end %>
+
+<h1 class="text-center">My Orders overview</h1>
+
+<div class="container-fluid">
+  <% @orders.order(updated_at: :desc).each do |order| %>
+   <% if order.confirmed == true %>
+   <tr>
+     <%= link_to bar_order_path(@bar, order) do %>
+        <div class="text-align">
+        <p>Order number <%= order.id %></p>
+       <p><%= order.amount %></p>
+       <p>Order state: paid at <%= order.updated_at %></p>
+       </div>
+  <% end %>
+<% end %>
+<% end %>
+
+
+
+
+

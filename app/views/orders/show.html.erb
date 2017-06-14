@@ -6,14 +6,39 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
       <div class="page-header">
+
+      <% if @order.confirmed == false %>
+
         <h1 class="text-center">Order overview <small><%= @bar.name %></small></h1>
+
+        <% else %>
+
+        <h1 class="text-center">My Order number <%= @order.id %> <small><%= @order.bar.name %></small></h1>
+
+        <% end %>
+
+
+      <% if @order.confirmed == true %>
+      <h2 class="text-center">State: Paid</h2>
+         <% if (@order.table_number.present?) then%>
+        <h4 class="text-center">Table: <%= @order.table_number %></h4>
+        <% else %>
+        <h4 class="text-center">Pick up at the bar</h4>
+        <% end %>
+      <% end %>
       </div>
+
+
+
       <table class="table table-hover table-striped">
         <thead>
           <tr>
             <th>Drink name</th>
             <th>Size</th>
+        <% if @order.confirmed == false %>
+
             <th class="text-center">Quantity</th>
+            <% end %>
             <th>price</th>
           </tr>
         </thead>
@@ -22,6 +47,9 @@
           <tr>
             <td><%= line.drink.name %></td>
             <td><%= line.drink.size %></td>
+
+            <% if @order.confirmed == false %>
+
             <td class="text-center">
               <div class="btn-group" role="group">
                 <%= link_to "-", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, remove: true, order: "order"), method: :post, class: "btn btn-default" %>
@@ -31,17 +59,29 @@
                 <%= link_to "+", bar_order_order_lines_path(@bar, current_user.current_order_per_bar(@bar), drink_id: line.drink.id, order: "order"), method: :post, class: "btn btn-default"%>
               </div>
             </td>
+
+            <% end %>
             <td><%= line.drink.price * line.quantity %> €</td>
           </tr>
           <% end %>
           <tr class="danger">
             <td>TOTAL :</td>
+
+          <% if @order.confirmed == false %>
+
             <td></td>
+
+            <% end %>
             <td class="text-center"><%= pluralize(@order.number_of_items_per_order, "Item") %></td>
             <td><%= @order.total_order %> €</td>
           </tr>
         </tbody>
       </table>
+
+
+
+      <% if @order.confirmed == false %>
+
 
       <div class="button-bar">
         <p>Pick up at the bar</p>
@@ -66,4 +106,5 @@
     Pay your order here
   <% end %>
 </div>
+<% end %>
 <% end %>
