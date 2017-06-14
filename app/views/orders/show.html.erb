@@ -1,5 +1,7 @@
+<% unless @order.confirmed %>
+
 <% content_for :navbar do %>
-  <%= render 'shared/navbar_barname' %>
+<%= render 'shared/navbar_barname' %>
 <% end %>
 
 <div class="container-fluid push-bottom" >
@@ -20,19 +22,62 @@
 
 
       <% unless @bar.number_of_tables == 0 %>
-        <div class="button-delivery">
-          <div>
-            <%= f.input :table_number, input_html: { min: "0", step: "1", max: @bar.number_of_tables }, label: "Or enter table number", class: "form-control table_picker" %>
-          </div>
+      <div class="button-delivery">
+        <div>
+          <%= f.input :table_number, input_html: { min: "0", step: "1", max: @bar.number_of_tables }, label: "Or enter table number", class: "form-control table_picker" %>
         </div>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
 <div>
   <%= f.button :button, class: "form-control button-to-pay" do %>
-    <i class="material-icons">payment</i>
-    Pay your order here
+  <i class="material-icons">payment</i>
+  Pay your order here
   <% end %>
+</div>
+<% end %>
+<% else %>
+<div class="container-fluid push-bottom" >
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <div class="page-header">
+        <h1 class="text-center">My Order <br><small>from <%= @order.bar.name %></small></h1>
+        <h3 class="text-center">State paid</h3>
+        <h3 class="label label-default"><%= "Pick up at the bar" unless @order.table_number %></h3>
+        <h3 class="text-center">Table: <%= @order.table_number %></h3>
+      </div>
+      <ul class="list-group">
+
+        <% @order.order_lines.sort_by {|ol| ol.drink.name }.each do |line| %>
+        <li class="list-group-item" id="order_line_show_2<%= line.drink.id %>">
+          <div class="row vertical-align">
+            <div class="col-xs-10">
+              <!-- name of the line.drink -->
+              <div class="col-xs-12 col-sm-9">
+                <h5><%= line.drink.name %></h5>
+              </div>
+              <!-- price and quantity -->
+              <div class="col-xs-12 col-sm-3">
+                <div class="label label-primary"><%= line.drink.price * line.quantity %> €</div>
+                <div class="label label-default"><%= line.drink.size %></div>
+              </div>
+            </div>
+            <!-- button for options -->
+            <div class="col-xs-2">
+              <%= pluralize(line.quantity, "drink") %>
+            </div>
+          </div>
+        </li>
+
+
+        <% end %>
+        <li class="list-group-item">
+          <h5>You have a total of <div class="label label-default"><%= pluralize(@order.number_of_items_per_order, "item") %></div> for <div class="label label-primary"><%= @order.total_order %> €</div></h5>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 <% end %>
