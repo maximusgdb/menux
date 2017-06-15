@@ -1,17 +1,37 @@
 
 <% content_for :navbar do %>
-  <%= render 'shared/navbar_barname' %>
+<%= render 'shared/navbar_barname' %>
 <% end %>
 
 <div class="container-fluid push-bottom">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <% @first = true %>
-        <% @bar.drinks.group_by(&:category).each do |category, drinks| %>
-          <%= render 'category_dropdown', category: category, drinks: drinks, first: @first %>
+        <!-- here comes the favorites category -->
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="heading-favorites">
 
-          <% @first = false %>
+            <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse-favorites" aria-expanded="false" aria-controls="collapse-favorites">
+              <h4 class="panel-title">
+                Favorites
+                <i class="material-icons pull-right">expand_more</i>
+              </h4>
+
+            </div>
+          </div>
+          <div id="collapse-favorites" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              <ul class="list-group">
+                <% @bar.drinks.where(favorite: true).each do |drink| %>
+                  <%= render 'drink_list_dropdown', drink: drink, show_plus: "" %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end of the favorites category -->
+        <% @bar.drinks.group_by(&:category).each do |category, drinks| %>
+        <%= render 'category_dropdown', category: category, drinks: drinks %>
         <% end %>
       </div>
     </div>
@@ -21,19 +41,19 @@
 
 
 <% content_for(:after_js) do %>
-  <script type="text/javascript">
-    (function()
+<script type="text/javascript">
+  (function()
+  {
+    if( window.localStorage )
     {
-      if( window.localStorage )
+      if( !localStorage.getItem('firstLoad') )
       {
-        if( !localStorage.getItem('firstLoad') )
-        {
-          localStorage['firstLoad'] = true;
-          window.location.reload();
-        }
-        else
-          localStorage.removeItem('firstLoad');
+        localStorage['firstLoad'] = true;
+        window.location.reload();
       }
-    })();
-  </script>
+      else
+        localStorage.removeItem('firstLoad');
+    }
+  })();
+</script>
 <% end %>
