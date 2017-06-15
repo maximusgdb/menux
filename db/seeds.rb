@@ -76,7 +76,7 @@ end
   User.create(email: Faker::Internet.email, password: "aaaaaa", name: Faker::Name.name, waiter: true, bar: bar )
 end
 
-User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
+User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou", admin: true, waiter: true, bar: lewagon)
 User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar: bar)
 
 Drink.create(name: "Jupiler", description: Faker::Beer.style, price_cents: 120, size: "33cl", category: beers, bar: lewagon)
