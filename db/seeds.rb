@@ -18,16 +18,14 @@ Drink.destroy_all
 bar = Bar.create(name: "Celtica",
   address: "Rue du Marché aux Poulets 55, 1000 Bruxelles, Belgique",
   description: "Irish bar",
-  opening_hours: "
-    open",
+  opening_hours: "open",
   number_of_tables: 10,
   picture: "http://sambawalker.com/guide/imgs/imgs-slideshow/celtica-irish-pub-brussels/irish-pub-brussels-3.jpg"
   )
 big_games = Bar.create(name: "The Big Games",
   address: "Rue Henri Maus 5, 1000 Bruxelles",
   description: "Brusseleirs bar",
-  opening_hours: "
-    closed",
+  opening_hours: "closed",
   number_of_tables: 0,
   picture: "https://raw.githubusercontent.com/matthieudou/menux/master/app/assets/images/bg.jpg"
 
