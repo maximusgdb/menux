@@ -56,6 +56,19 @@ deli = Bar.create(name: "Delirium Café",
   number_of_tables: 100
   )
 
+lewagon = Bar.create(name: "Le Wagon Bar",
+  address: "Parvis Sainte-Gudule 5, 1000 Brussel",
+  description: "Bar de codeurs où la bière se mélange à la technologie.",
+  opening_hours: "dimanche  10:00–02:00
+    lundi 10:00–04:00
+    mardi 10:00–04:00
+    mercredi  10:00–04:00
+    jeudi 10:00–04:00
+    vendredi  10:00–04:00
+    samedi  10:00–04:00",
+  number_of_tables: 20
+  )
+
 # inserting categories
 softs = Category.create(name: "soft")
 beers = Category.create(name: "beer")
@@ -83,3 +96,11 @@ end
 
 User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
 User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar_id: 2)
+
+Drink.create(name: "Jupiler", description: Faker::Beer.style, price_cents: 120, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Maes", description: Faker::Beer.style, price_cents: 150, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "La Chouffe", description: Faker::Beer.style, price_cents: 200, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Westmalle Tripel", description: Faker::Beer.style, price_cents: 220, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Kriek", description: Faker::Beer.style, price_cents: 190, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Bière Le Wagon", description: Faker::Beer.style, price_cents: 110, size: "50cl", category: beers, bar: lewagon)
+Drink.create(name: "La Ruby", description: Faker::Beer.style, price_cents: 180, size: "50cl", category: beers, bar: lewagon)
