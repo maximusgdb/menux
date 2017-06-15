@@ -47,7 +47,7 @@ lewagon = Bar.create(name: "Le Wagon Bar",
   description: "Bar de codeurs où la bière se mélange à la technologie.",
   opening_hours: "open",
   number_of_tables: 20,
-  picture: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s300/le-wagon-logo.png"
+  picture: "https://pbs.twimg.com/profile_images/784376636514893829/OhmKz9PJ.jpg"
 
   )
 
