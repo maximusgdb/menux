@@ -77,7 +77,7 @@ end
 User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou", admin: true, waiter: true, bar: lewagon)
 User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar: bar)
 User.create(email: "customer@bar.be", password: "password", name: "Stijn", admin: true)
-User.create(email: "waiter@test.be", password: "password", name: "Matthieu", admin: true, waiter: true, bar: lewagon)
+User.create(email: "waiter@lewagon.be", password: "password", name: "Matthieu", admin: true, waiter: true, bar: lewagon)
 
 Drink.create(name: "Jupiler", description: Faker::Beer.style, price_cents: 120, size: "33cl", category: beers, bar: lewagon)
 Drink.create(name: "Maes", description: Faker::Beer.style, price_cents: 150, size: "33cl", category: beers, bar: lewagon)
@@ -91,3 +91,7 @@ Drink.create(name: "La Javascript", description: Faker::Beer.style, price_cents:
 Drink.create(name: "Chateau Margaux", description: Faker::Beer.style, price_cents: 1500, size: "75cl", category: wines, bar: lewagon, favorite: true)
 Drink.create(name: "Châteauneuf-du-pape", description: Faker::Beer.style, price_cents: 5500, size: "75cl", category: wines, bar: lewagon)
 Drink.create(name: "Chateau Migraine", description: Faker::Beer.style, price_cents: 750, size: "50cl", category: wines, bar: lewagon)
+
+Drink.create(name: "Coca-Cola", description: Faker::Beer.style, price_cents: 150, size: "50cl", category: softs, bar: lewagon)
+Drink.create(name: "Fanta", description: Faker::Beer.style, price_cents: 160, size: "50cl", category: softs, bar: lewagon)
+Drink.create(name: "Sprite", description: Faker::Beer.style, price_cents: 150, size: "50cl", category: softs, bar: lewagon)
