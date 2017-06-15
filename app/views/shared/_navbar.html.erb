@@ -3,7 +3,9 @@
   <% unless @hide_back_button %>
     <div id="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
   <% end %>
-    <h3 class="navbar-title" href="#">MenuX</h3>
+    <%= link_to bars_path do %>
+      <%= image_tag("menuX.png", height: "60px") %>
+    <% end %>
     <div id="o-wrapper" class="o-wrapper">
       <div class="c-buttons">
          <div id="c-button--slide-right" class="c-button">
