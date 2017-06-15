@@ -17,11 +17,18 @@ class Waiter::OrdersController < ApplicationController
 def update
   @order = Order.find(params[:id])
   authorize @order
-  @order.in_charge = true if params[:in_charge] == "true"
-  @order.delivered = true if params[:delivered] == "true"
 
-  @order.save
-  redirect_to bar_waiter_orders_path(@bar, @order)
+  if params[:in_charge]
+    @order.in_charge = !@order.in_charge
+    @order.save
+    redirect_to bar_waiter_order_path(@bar, @order)
+  end
+
+  if params[:delivered] == "true"
+    @order.delivered = true
+    @order.save
+    redirect_to bar_waiter_orders_path(@bar, @order)
+  end
 end
 
   private

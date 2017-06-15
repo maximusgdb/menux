@@ -6,6 +6,7 @@
   padding: 15px;
   display: flex;
   justify-content: space-around;
+  background-color: white;
   p {
     margin-bottom: 0;
   }
@@ -21,8 +22,14 @@
   transform: scale(1.05);
 }
 
+
 .btn-done {
   p {
     margin-bottom: 0;
   }
+}
+
+#btn-done-active {
+  background-color: #278f75;
+  border-color: #1f735e;
 }
