@@ -11,7 +11,7 @@
 
     <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration #{'order-in-charge' if order.in_charge}" do %>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="order-card">
+      <div class="order-card" style="color:black; font-weight: bold">
 
         <div>
           <% if (order.table_number.present?) then%>

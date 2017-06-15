@@ -6,7 +6,8 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
       <div class="page-header">
-        <h1 class="text-center">Order overview <small><%= @bar.name %></small></h1>
+        <h1 class="text-center">Order overview</h1>
+        <h1 class="text-center"> <small><%= @bar.name %></small></h1>
       </div>
       <ul class="list-group">
         <% @order.order_lines.sort_by {|ol| ol.drink.name }.each do |line| %>
@@ -30,9 +31,15 @@
           </div>
         </li>
         <% end %>
+
+
+
+
         <li class="list-group-item">
-          <h5>Total of <div class="label label-default"><%= pluralize(@order.number_of_items_per_order, "item") %></div></h5>
+
+          <h5 style="font-weight: bold; padding-left: 15px;">Total of <div class="label label-default"><%= pluralize(@order.number_of_items_per_order, "item") %></div></h5>
         </li>
+
       </div>
     </ul>
   </div>
