@@ -10,19 +10,25 @@
 
     <% @orders.order(updated_at: :desc).each do |order| %>
     <% if order.confirmed == true %>
-    <tr>
+
      <%= link_to bar_order_path(@bar, order) do %>
      <div class="col-xs-12 col-md-6">
       <div class="bar-card">
         <div class="row">
 
-        <div class="col-xs-11 col-sm-12">
+        <div class="col-xs-1 col-sm-12">
+            <div class="orders-photo">
+            </div>
+          </div>
 
-        <div class="bar-content">
+          <div class="col-xs-11 col-sm-12">
+            <div class="bar-content">
 
           <p>Order number <%= order.id %></p>
           <p>Total: <%= order.amount %> €</p>
-          <p>Order state: paid at <%= order.updated_at.in_time_zone(1)  %></p>
+          <p>Order state: paid at <%= order.updated_at.in_time_zone(1).to_time  %></p>
+        </div>
+        </div>
         </div>
         </div>
       </div>
