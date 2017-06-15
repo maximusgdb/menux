@@ -22,6 +22,13 @@
   transform: scale(1.05);
 }
 
+
+.btn-done {
+  p {
+    margin-bottom: 0;
+  }
+}
+
 #btn-done-active {
   background-color: #278f75;
   border-color: #1f735e;
