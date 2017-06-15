@@ -1,33 +1,48 @@
 <% content_for :navbar do %>
-  <%= render 'shared/navbar_barname' %>
+<%= render 'shared/navbar_barname' %>
 <% end %>
 
 <h1 class="text-center">Orders overview</h1>
 
-<div class="container-fluid">
-  <% @bar.orders.each do |order| %>
-  <% if order.confirmed == true && order.delivered == false %>
-  <div class="row <%= 'order-in-charge' if order.in_charge == true  %>">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-      <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration" do %>
-      <button class="btn btn-default btn-block btn-lg marged active" >
+<div class="container">
+  <div class="row">
+    <% @bar.orders.each do |order| %>
+    <% if order.confirmed == true && order.delivered == false %>
 
-        <% if (order.table_number.present?) then%>
-        <p class="pull-left">Table: <%= order.table_number %></p>
-        <% else %>
-        <p class="pull-left">At the bar</p>
-        <% end %>
+    <%= link_to bar_waiter_order_path(@bar, order), class: "link-no-decoration #{'order-in-charge' if order.in_charge}" do %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="order-card">
 
-        <%= pluralize(order.number_of_items_per_order, "Drink") %>
+        <div>
+          <% if (order.table_number.present?) then%>
+            <p>Table: <%= order.table_number %></p>
+          <% else %>
+            <p>At the bar</p>
+          <% end %>
+        </div>
 
-        <% end %>
-        <% end %>
+        <div>
+          <%= pluralize(order.number_of_items_per_order, "Drink") %>
+        </div>
 
-
-
+        <div>
+          <% if order.in_charge then %>
+            <span class="label label-danger">
+              TAKEN
+            </span>
+          <% else %>
+            <span class="label label-success">
+              TO DO
+            </span>
+          <% end %>
+        </div>
       </div>
+        <% end %>
+        <% end %>
     </div>
     <% end %>
   </div>
+</div>
+
 
 
