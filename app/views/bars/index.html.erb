@@ -14,8 +14,8 @@
 
           <div class="col-xs-10 col-sm-12">
             <div class="bar-content">
-              <span class="label label-success pull-right">
-                open
+              <span class="label <%= bar.opening_hours == "open" ? "label-success" : "label-danger" %> pull-right">
+                <%= bar.opening_hours %>
               </span>
               <h3>
                 <%= bar.name %>
@@ -35,4 +35,3 @@
     <% end %>
   </div>
 </div>
-<%# render 'bar_card' , bar: bar %>
