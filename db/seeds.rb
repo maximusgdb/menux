@@ -19,41 +19,36 @@ bar = Bar.create(name: "Celtica",
   address: "Rue du Marché aux Poulets 55, 1000 Bruxelles, Belgique",
   description: "Irish bar",
   opening_hours: "
-    lundi 13:00–05:00
-    mardi 13:00–05:00
-    mercredi  13:00–05:00
-    jeudi 13:00–06:00
-    vendredi  13:00–07:00
-    samedi  13:00–07:00
-    dimanche  13:00–05:00",
-  number_of_tables: 10
+    open",
+  number_of_tables: 10,
+  picture: "http://sambawalker.com/guide/imgs/imgs-slideshow/celtica-irish-pub-brussels/irish-pub-brussels-3.jpg"
   )
-
 big_games = Bar.create(name: "The Big Games",
   address: "Rue Henri Maus 5, 1000 Bruxelles",
   description: "Brusseleirs bar",
   opening_hours: "
-    vendredi  12:00–07:00
-    samedi  12:00–07:00
-    dimanche  12:00–05:00
-    lundi 12:00–05:00
-    mardi 12:00–05:00
-    mercredi  12:00–05:00
-    jeudi 12:00–05:00",
-  number_of_tables: 0
+    closed",
+  number_of_tables: 0,
+  picture: "https://raw.githubusercontent.com/matthieudou/menux/master/app/assets/images/bg.jpg"
+
   )
 
 deli = Bar.create(name: "Delirium Café",
   address: "Impasse de la Fidélité 4, 1000 Bruxelles",
   description: "Bar avec plus de 2 000 bières, concerts le jeudi soir et objets de déco sur l'univers de la brasserie.",
-  opening_hours: "dimanche  10:00–02:00
-    lundi 10:00–04:00
-    mardi 10:00–04:00
-    mercredi  10:00–04:00
-    jeudi 10:00–04:00
-    vendredi  10:00–04:00
-    samedi  10:00–04:00",
-  number_of_tables: 100
+  opening_hours: "open",
+  number_of_tables: 100,
+  picture: "https://c1.staticflickr.com/1/471/19277847124_e5613ac4b8_b.jpg"
+
+  )
+
+lewagon = Bar.create(name: "Le Wagon Bar",
+  address: "Parvis Sainte-Gudule 5, 1000 Brussel",
+  description: "Bar de codeurs où la bière se mélange à la technologie.",
+  opening_hours: "open",
+  number_of_tables: 20,
+  picture: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s300/le-wagon-logo.png"
+
   )
 
 # inserting categories
@@ -78,8 +73,21 @@ prices = [130, 270, 100, 330]
 end
 
 2.times do
-  User.create(email: Faker::Internet.email, password: "aaaaaa", name: Faker::Name.name, waiter: true, bar_id: 2 )
+  User.create(email: Faker::Internet.email, password: "aaaaaa", name: Faker::Name.name, waiter: true, bar: bar )
 end
 
 User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
-User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar_id: 2)
+User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar: bar)
+
+Drink.create(name: "Jupiler", description: Faker::Beer.style, price_cents: 120, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Maes", description: Faker::Beer.style, price_cents: 150, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "La Chouffe", description: Faker::Beer.style, price_cents: 200, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Westmalle Tripel", description: Faker::Beer.style, price_cents: 220, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Kriek", description: Faker::Beer.style, price_cents: 190, size: "33cl", category: beers, bar: lewagon)
+Drink.create(name: "Bière Le Wagon", description: Faker::Beer.style, price_cents: 110, size: "50cl", category: beers, bar: lewagon)
+Drink.create(name: "La Ruby", description: Faker::Beer.style, price_cents: 180, size: "50cl", category: beers, bar: lewagon, favorite: true)
+Drink.create(name: "La Javascript", description: Faker::Beer.style, price_cents: 200, size: "50cl", category: beers, bar: lewagon, favorite: true)
+
+Drink.create(name: "Chateau Margaux", description: Faker::Beer.style, price_cents: 1500, size: "75cl", category: wine, bar: lewagon, favorite: true)
+Drink.create(name: "Châteauneuf-du-pape", description: Faker::Beer.style, price_cents: 5500, size: "75cl", category: wine, bar: lewagon)
+Drink.create(name: "Chateau Migraine", description: Faker::Beer.style, price_cents: 750, size: "50cl", category: wine, bar: lewagon)
