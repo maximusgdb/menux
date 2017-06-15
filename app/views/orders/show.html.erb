@@ -46,7 +46,9 @@
         <h1 class="text-center">My Order <br><small>from <%= @order.bar.name %></small></h1>
         <h3 class="text-center">State paid</h3>
         <h3 class="label label-default"><%= "Pick up at the bar" unless @order.table_number %></h3>
+        <%  if @order.table_number %>
         <h3 class="text-center">Table: <%= @order.table_number %></h3>
+        <% end %>
       </div>
       <ul class="list-group">
 
