@@ -6,6 +6,7 @@
   padding: 15px;
   display: flex;
   justify-content: space-around;
+  background-color: white;
   p {
     margin-bottom: 0;
   }
@@ -19,4 +20,9 @@
 .order-card:hover {
   transform-origin: 50% 50%;
   transform: scale(1.05);
+}
+
+#btn-done-active {
+  background-color: #278f75;
+  border-color: #1f735e;
 }

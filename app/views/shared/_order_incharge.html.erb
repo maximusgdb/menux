@@ -1,11 +1,20 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-      <%= link_to bar_waiter_order_path(@bar, @order, in_charge: true), :method => :put,  class: "link-no-decoration" do %>
-        <button class="btn btn-default btn-block btn-lg btn-success marged" id="btn-done">
 
-          <p class="text-center bold" >In charge</p>
-        </button>
+      <% if @order.in_charge == false %>
+        <%= link_to bar_waiter_order_path(@bar, @order, in_charge: true), :method => :put,  class: "link-no-decoration" do %>
+          <button class="btn btn-default btn-block btn-lg btn-success marged text-center bold" id="btn-done">
+
+            Click to take this order
+          </button>
+        <% end %>
+      <% else %>
+        <%= link_to bar_waiter_order_path(@bar, @order, in_charge: false), :method => :put,  class: "link-no-decoration" do %>
+          <button class="btn btn-default btn-block btn-lg btn-success marged text-center bold" id="btn-done-active">
+            Click to leave order
+          </button>
+        <% end %>
       <% end %>
     </div>
   </div>

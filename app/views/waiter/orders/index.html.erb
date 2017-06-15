@@ -44,5 +44,23 @@
   </div>
 </div>
 
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  (function()
+  {
+    if( window.localStorage )
+    {
+      if( !localStorage.getItem('firstLoad') )
+      {
+        localStorage['firstLoad'] = true;
+        window.location.reload();
+      }
+      else
+        localStorage.removeItem('firstLoad');
+    }
+  })();
+</script>
+<% end %>
+
 
 
