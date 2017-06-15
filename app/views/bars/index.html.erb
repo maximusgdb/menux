@@ -7,15 +7,15 @@
       <div class="bar-card">
         <div class="row">
 
-          <div class="col-xs-2 col-sm-12">
+          <div class="col-xs-3 col-sm-12">
             <div class="bar-photo" style="background-image: url('<%= image_path bar.picture %>');">
             </div>
           </div>
 
-          <div class="col-xs-10 col-sm-12">
+          <div class="col-xs-9 col-sm-12">
             <div class="bar-content">
-              <span class="label label-success pull-right">
-                open
+              <span class="label <%= bar.opening_hours == "open" ? "label-success" : "label-danger" %> pull-right">
+                <%= bar.opening_hours %>
               </span>
               <h3>
                 <%= bar.name %>
@@ -35,4 +35,3 @@
     <% end %>
   </div>
 </div>
-<%# render 'bar_card' , bar: bar %>

@@ -1,4 +1,7 @@
 <!-- app/views/payments/new.html.erb -->
+<div class="container">
+<div class="text-center">
+<div class="flex-purchase">
 <h1>Purchase</h1>
 <%= form_tag bar_order_payments_path(@bar, @order) do %>
   <article>
@@ -6,6 +9,8 @@
       <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
     </label>
   </article>
+
+
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -15,3 +20,6 @@
     data-currency= "EUR"></script>
 
 <% end %>
+</div>
+</div>
+</div>

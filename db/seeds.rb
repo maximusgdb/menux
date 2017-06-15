@@ -18,16 +18,14 @@ Drink.destroy_all
 bar = Bar.create(name: "Celtica",
   address: "Rue du Marché aux Poulets 55, 1000 Bruxelles, Belgique",
   description: "Irish bar",
-  opening_hours: "
-    open",
+  opening_hours: "open",
   number_of_tables: 10,
   picture: "http://sambawalker.com/guide/imgs/imgs-slideshow/celtica-irish-pub-brussels/irish-pub-brussels-3.jpg"
   )
 big_games = Bar.create(name: "The Big Games",
   address: "Rue Henri Maus 5, 1000 Bruxelles",
   description: "Brusseleirs bar",
-  opening_hours: "
-    closed",
+  opening_hours: "closed",
   number_of_tables: 0,
   picture: "https://raw.githubusercontent.com/matthieudou/menux/master/app/assets/images/bg.jpg"
 
@@ -47,7 +45,7 @@ lewagon = Bar.create(name: "Le Wagon Bar",
   description: "Bar de codeurs où la bière se mélange à la technologie.",
   opening_hours: "open",
   number_of_tables: 20,
-  picture: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s300/le-wagon-logo.png"
+  picture: "https://pbs.twimg.com/profile_images/784376636514893829/OhmKz9PJ.jpg"
 
   )
 
@@ -76,8 +74,10 @@ end
   User.create(email: Faker::Internet.email, password: "aaaaaa", name: Faker::Name.name, waiter: true, bar: bar )
 end
 
-User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou")
+User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou", admin: true, waiter: true, bar: lewagon)
 User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar: bar)
+User.create(email: "customer@bar.be", password: "password", name: "Stijn", admin: true)
+User.create(email: "waiter@test.be", password: "password", name: "Matthieu", admin: true, waiter: true, bar: lewagon)
 
 Drink.create(name: "Jupiler", description: Faker::Beer.style, price_cents: 120, size: "33cl", category: beers, bar: lewagon)
 Drink.create(name: "Maes", description: Faker::Beer.style, price_cents: 150, size: "33cl", category: beers, bar: lewagon)

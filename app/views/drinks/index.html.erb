@@ -8,6 +8,7 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <!-- here comes the favorites category -->
+        <% unless @bar.drinks.where(favorite: true).empty? %>
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="heading-favorites">
 
@@ -29,6 +30,7 @@
             </div>
           </div>
         </div>
+        <% end %>
         <!-- end of the favorites category -->
         <% @bar.drinks.group_by(&:category).each do |category, drinks| %>
         <%= render 'category_dropdown', category: category, drinks: drinks %>
