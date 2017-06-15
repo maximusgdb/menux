@@ -88,6 +88,6 @@ Drink.create(name: "Bière Le Wagon", description: Faker::Beer.style, price_cent
 Drink.create(name: "La Ruby", description: Faker::Beer.style, price_cents: 180, size: "50cl", category: beers, bar: lewagon, favorite: true)
 Drink.create(name: "La Javascript", description: Faker::Beer.style, price_cents: 200, size: "50cl", category: beers, bar: lewagon, favorite: true)
 
-Drink.create(name: "Chateau Margaux", description: Faker::Beer.style, price_cents: 1500, size: "75cl", category: wine, bar: lewagon, favorite: true)
-Drink.create(name: "Châteauneuf-du-pape", description: Faker::Beer.style, price_cents: 5500, size: "75cl", category: wine, bar: lewagon)
-Drink.create(name: "Chateau Migraine", description: Faker::Beer.style, price_cents: 750, size: "50cl", category: wine, bar: lewagon)
+Drink.create(name: "Chateau Margaux", description: Faker::Beer.style, price_cents: 1500, size: "75cl", category: wines, bar: lewagon, favorite: true)
+Drink.create(name: "Châteauneuf-du-pape", description: Faker::Beer.style, price_cents: 5500, size: "75cl", category: wines, bar: lewagon)
+Drink.create(name: "Chateau Migraine", description: Faker::Beer.style, price_cents: 750, size: "50cl", category: wines, bar: lewagon)
