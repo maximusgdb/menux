@@ -4,8 +4,18 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 200px;
-    width: 200px;
+    height: 177px;
+    width: 250px;
     margin: auto;
 }
 
+.bar-card-payment {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 2px;
+  background-color: white;
+
+}
+
+.amount {
+  padding-bottom: 10px;
+}
