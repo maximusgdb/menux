@@ -78,6 +78,8 @@ end
 
 User.create(email: "matthieudou@matthieudou", password: "matthieudou", name: "matthieudou", admin: true, waiter: true, bar: lewagon)
 User.create(email: "test@test.be", password: "password", name: "test", admin: true, waiter: true, bar: bar)
+User.create(email: "customer@bar.be", password: "password", name: "Stijn", admin: true)
+User.create(email: "waiter@test.be", password: "password", name: "Matthieu", admin: true, waiter: true, bar: lewagon)
 
 Drink.create(name: "Jupiler", description: Faker::Beer.style, price_cents: 120, size: "33cl", category: beers, bar: lewagon)
 Drink.create(name: "Maes", description: Faker::Beer.style, price_cents: 150, size: "33cl", category: beers, bar: lewagon)
