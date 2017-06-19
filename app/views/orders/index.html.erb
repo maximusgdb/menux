@@ -8,20 +8,13 @@
     <h1 class="text-center">My Orders overview</h1>
 
 
-    <% @orders.order(updated_at: :desc).each do |order| %>
+    <% current_user.orders.order(updated_at: :desc).each do |order| %>
     <% if order.confirmed == true %>
 
      <%= link_to bar_order_path(@bar, order) do %>
      <div class="col-xs-12 col-md-6">
-      <div class="bar-card">
+      <div class="bar-card" style="padding-left: 10px;">
         <div class="row">
-
-        <div class="col-xs-1 col-sm-12">
-            <div class="orders-photo">
-            </div>
-          </div>
-
-          <div class="col-xs-11 col-sm-12">
             <div class="bar-content">
 
           <p>Order number <%= order.id %></p>
@@ -31,8 +24,6 @@
         </div>
         </div>
         </div>
-      </div>
-    </div>
         <% end %>
       <% end %>
     <% end %>
