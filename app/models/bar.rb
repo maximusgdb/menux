@@ -7,7 +7,7 @@ class Bar < ApplicationRecord
   validates :address, presence: true
   validates :opening_hours, presence: true
 
-#  mount_uploader :picture, PhotoUploader
+  mount_uploader :picture, PhotoUploader
 
 
 end
