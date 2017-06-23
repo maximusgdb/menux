@@ -20,14 +20,14 @@ bar = Bar.create(name: "Celtica",
   description: "Irish bar",
   opening_hours: "open",
   number_of_tables: 10,
-  picture: "http://sambawalker.com/guide/imgs/imgs-slideshow/celtica-irish-pub-brussels/irish-pub-brussels-3.jpg"
+  remote_picture_url: "http://sambawalker.com/guide/imgs/imgs-slideshow/celtica-irish-pub-brussels/irish-pub-brussels-3.jpg"
   )
 big_games = Bar.create(name: "The Big Games",
   address: "Rue Henri Maus 5, 1000 Bruxelles",
   description: "Brusseleirs bar",
   opening_hours: "closed",
   number_of_tables: 0,
-  picture: "https://raw.githubusercontent.com/matthieudou/menux/master/app/assets/images/bg.jpg"
+  remote_picture_url: "https://raw.githubusercontent.com/matthieudou/menux/master/app/assets/images/bg.jpg"
 
   )
 
@@ -36,7 +36,7 @@ deli = Bar.create(name: "Delirium Café",
   description: "Bar avec plus de 2 000 bières, concerts le jeudi soir et objets de déco sur l'univers de la brasserie.",
   opening_hours: "open",
   number_of_tables: 100,
-  picture: "https://c1.staticflickr.com/1/471/19277847124_e5613ac4b8_b.jpg"
+  remote_picture_url: "https://c1.staticflickr.com/1/471/19277847124_e5613ac4b8_b.jpg"
 
   )
 
@@ -45,7 +45,7 @@ lewagon = Bar.create(name: "Le Wagon Bar",
   description: "Bar de codeurs où la bière se mélange à la technologie.",
   opening_hours: "open",
   number_of_tables: 20,
-  picture: "https://pbs.twimg.com/profile_images/784376636514893829/OhmKz9PJ.jpg"
+  remote_picture_url: "https://pbs.twimg.com/profile_images/784376636514893829/OhmKz9PJ.jpg"
 
   )
 
